@@ -129,6 +129,20 @@ When the interview comes to a conclusion, the user must click End Interview to r
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- DEVELOPERS AND THEIR CONTRIBUTION -->
+
+## Developersandtheircontribution
+
+1. Caitlin Sanderson
+
+2. Rhya Johns
+
+3. Maryanne Galo
+
+<!-- list pages you contributed to under your name -->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- ACKNOWLEDGMENTS -->
 
 ## Acknowledgments
