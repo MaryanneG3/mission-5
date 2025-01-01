@@ -1,0 +1,1 @@
+/// get request to get allllllll the data from the db to be used in front end
