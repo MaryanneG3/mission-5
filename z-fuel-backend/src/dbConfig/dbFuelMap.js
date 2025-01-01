@@ -3,10 +3,7 @@ const mongoose = require("mongoose");
 const connectDBFuelMap = async () => {
   //async function to connect to db
   try {
-    await mongoose.connect("mongodb://localhost:27017/FuelMapDB", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect("mongodb://localhost:27017/FuelMapDB", {});
     console.log(
       "✅ mongoDB connection successful. Now connected to: FuelMapDB 🔌"
     );

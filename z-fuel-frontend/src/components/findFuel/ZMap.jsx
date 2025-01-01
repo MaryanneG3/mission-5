@@ -9,11 +9,9 @@ import {
 function ZMap() {
   const [open, setOpen] = useState(false);
   const [googleLoaded, setGoogleLoaded] = useState(false); // track if Google Maps is loaded
+  const [stations, setStations] = useState([]); // stores stations data
 
   const position = { lat: -37.05587893945348, lng: 174.92683621422697 };
-  const zKingsway = { lat: -37.0606535, lng: 174.948526 };
-  const papakuraNorth = { lat: -37.0505888253282, lng: 174.92973951083405 };
-  const takanini = { lat: -37.04244157998147, lng: 174.9201183815876 };
 
   // Wait for Google Maps to load
   useEffect(() => {
@@ -27,7 +25,27 @@ function ZMap() {
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
 
-  const stations = [zKingsway, papakuraNorth, takanini]; // array of station positions **** will pull array from database
+  // Fetch the Z-stations data from the backend to be used dynamically
+  useEffect(() => {
+    const fetchStations = async () => {
+      try {
+        const response = await fetch("http://localhost:5001/api/stations"); // Endpoint URL to access the data
+        const data = await response.json(); // Parse the response object as JSON to get actual data
+        setStations(data); // Update the stations state with DB data from BE
+      } catch (error) {
+        console.error(
+          "An error occurred while fetching station data from the backend: ",
+          error
+        );
+      }
+    };
+
+    fetchStations(); // Call fetchStations to trigger the data fetch
+  }, []);
+
+  useEffect(() => {
+    console.log(stations); // Log updated state
+  }, [stations]);
 
   return (
     <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
@@ -38,22 +56,25 @@ function ZMap() {
           mapId={import.meta.env.VITE_MAP_ID}
         >
           {googleLoaded &&
-            stations.map((station, index) => (
-              <Marker
-                key={index}
-                position={station}
-                onClick={() => setOpen(true)}
-                icon={{
-                  url: "/images/zPurpleVector.png", // Custom pin image URL
-                  scaledSize:
-                    googleLoaded && window.google.maps
-                      ? new window.google.maps.Size(30, 30)
-                      : undefined, // Only access google.maps when it's loaded
-                }}
-              />
-            ))}
+            stations.map((station, index) => {
+              console.log(station.coordinates); // log the coordinates object for each station (lng and lats)
+              return (
+                <Marker
+                  key={index}
+                  position={station.coordinates}
+                  onClick={() => setOpen(true)}
+                  icon={{
+                    url: "/images/zPurpleVector.png", // Custom pin image URL
+                    scaledSize:
+                      googleLoaded && window.google.maps
+                        ? new window.google.maps.Size(30, 30)
+                        : undefined, // only access google.maps when it's loaded, otherwise leave as undefind
+                  }}
+                />
+              );
+            })}
           {open && (
-            <InfoWindow position={zKingsway}>
+            <InfoWindow position={position}>
               <h1>Z location</h1>
               <h3>Z address 239, suburb</h3>
               <h4>Open 24 hours</h4>
