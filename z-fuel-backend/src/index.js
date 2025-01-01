@@ -8,11 +8,10 @@ const app = express();
 // middleware
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use("/api", stationRoutes); //access station routes (rhya/fuelmap)
 
 //Choose DB you want to connect to (uncooment your db and comment out all others)
 connectDBFuelMap(); //connect to FuelMapDB (for fuel map features) **rhya's db
-
 
 //initial route
 app.get("/", (req, res) => {
@@ -24,7 +23,7 @@ app.get("/", (req, res) => {
 
 // })
 
-const PORT = process.env.PORT || 5001
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
