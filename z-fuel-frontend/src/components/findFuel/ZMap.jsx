@@ -11,8 +11,8 @@ function ZMap() {
   useEffect(() => {
     const fetchStations = async () => {
       try {
-        const response = await fetch("http://localhost:5001/api/stations"); // Endpoint URL to access the data
-        const data = await response.json(); // Parse the response object as JSON to get actual data
+        const response = await fetch("http://localhost:5001/api/stations"); // endpoint URL to access the data
+        const data = await response.json(); // parse the response object as JSON to get actual usuabledata
         setStations(data); // update the stations state with DB data from BE
       } catch (error) {
         console.error(
