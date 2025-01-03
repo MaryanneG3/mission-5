@@ -1,10 +1,10 @@
 import styles from "./StationCard.module.css";
 
-function StationCard({ station, index }) {
+function StationCard({ station }) {
   return (
     <div className={styles.stationCard}>
-      <h2>{station.name}</h2>
-      <p>
+      <h2 className={styles.stationName}>{station.name}</h2>
+      <p className={styles.stationAddress}>
         {station.address}, {station.suburb}
       </p>
       <div className={styles.description}>
@@ -12,31 +12,25 @@ function StationCard({ station, index }) {
           <h4>Services Offered</h4>
           <p>picture icons here</p>
           <h4>Contact Store</h4>
-          <p>{station.phone}</p>
+          <div className={styles.contactInfo}>
+            <img
+              src="/images/phoneIconWhite.png"
+              alt="Phone Icon"
+              className={styles.phoneIcon}
+            />
+            <span>{station.phone}</span>
+          </div>
         </div>
 
         <div className={styles.rightSide}>
-          <p>
-            Sun: <span>{station.hours.sunday}</span>
-          </p>
-          <p>
-            Mon: <span>{station.hours.monday}</span>
-          </p>
-          <p>
-            Tue: <span>{station.hours.tuesday}</span>
-          </p>
-          <p>
-            Wed: <span>{station.hours.wednesday}</span>
-          </p>
-          <p>
-            Thurs: <span>{station.hours.thursday}</span>
-          </p>
-          <p>
-            Fri: <span>{station.hours.friday}</span>
-          </p>
-          <p>
-            Sat: <span>{station.hours.saturday}</span>
-          </p>
+          {Object.entries(station.hours).map(([day, hours]) => ( //Object.entries() takes an object and converts into an array of key-value pairs
+            <div className={styles.hourRow} key={day}>
+              <span className={styles.day}>
+                {day.charAt(0).toUpperCase() + day.slice(1)}
+              </span>
+              <span className={styles.hours}>{hours}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  background-image: url("/images/ellipse.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #f8f8f8;
+}
+
+.leftContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 20px;
+  align-items: center;
+  width: 33.3%;
+}

@@ -1,22 +1,83 @@
+*{
+  
+}
+
 .stationCard {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
   padding: 1rem;
-  border: 1px solid #ddd;
   border-radius: 18px;
   background-image: url("/images/orangeGradient.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 462px;
-  height: 193px;
-  color: antiquewhite;
-  font-family: Roboto;
+  background-clip: padding-box;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 250;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 5px solid rgba(255, 255, 255, 0);
+  max-width: 490px;
+}
+
+.stationName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.stationAddress {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 .description {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contactInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.phoneIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns the text to the left */
+  gap: 5px; /* Space between each row */
+  font-size: 16px; /* Adjust based on the image */
+  color: white; /* Matches the white text in the image */
+  font-family: Roboto, sans-serif; /* Matches the font in the image */
+}
+
+.hourRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Ensures alignment across the card */
+}
+
+.day {
+  font-weight: bold; /* Matches the bold text for days */
+  width: 60px; /* Fixed width for proper alignment */
+  text-align: left; /* Aligns the day name to the left */
+}
+
+.hours {
+  text-align: right; /* Aligns the hours to the right */
+  flex-grow: 1; /* Ensures the hours align on the right side */
 }

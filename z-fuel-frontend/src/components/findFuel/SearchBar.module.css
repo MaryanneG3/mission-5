@@ -1,0 +1,28 @@
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 490px;
+  margin-top: 45px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.icon img {
+  height: 20px;
+  width: 20px;
+}
+
+.input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 16px;
+  color: #333;
+}
