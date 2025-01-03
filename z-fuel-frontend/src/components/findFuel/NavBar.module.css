@@ -19,7 +19,7 @@
 .rightSide {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
 }
 
 .logo img {
@@ -30,7 +30,7 @@
   background-color: #f57c00;
   color: #fff;
   padding: 8px 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   text-decoration: none;
   font-size: 14px;
 }
@@ -38,7 +38,7 @@
 .navLinks {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 50px;
   margin: 0;
   padding: 0;
 }
@@ -51,7 +51,7 @@
 .icons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 50px;
 }
 
 .iconButton {
@@ -65,10 +65,10 @@
 }
 
 .navButtonRight {
-  background-color: #5c6bc0;
+  background-image: url(/images/purpleGradient.png);
   color: #fff;
   padding: 8px 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   text-decoration: none;
   font-size: 14px;
   display: flex;
