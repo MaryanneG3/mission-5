@@ -9,6 +9,8 @@
   display: flex;
   flex: 1;
   height: auto;
+  background-color: rgb(238, 208, 151);
+  /* background is orange just for testing */
 }
 
 .contentArea {

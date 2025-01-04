@@ -11,6 +11,8 @@ function Header() {
         <NavLink to="/" className={styles.logoContainer}>
           <img src={logo} className={styles.logoImg} />
         </NavLink>
+
+        <button className={styles.forPersonalBtn}>For Personal</button>
       </div>
 
       {/* navlinks will vary for specific pages - use variants */}
