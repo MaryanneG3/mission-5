@@ -1,7 +1,7 @@
-import React from "react";
+import BaseLayout from "../../layouts/baselayout/BaseLayout";
 
 function Homepage() {
-  return <div>Welcome to Z-Fuel!</div>; // placeholder
+  return <BaseLayout>Welcome to Z-Fuel!</BaseLayout>;
 }
 
 export default Homepage;
