@@ -5,7 +5,7 @@ function NavLinks({ variant }) {
   return (
     <div>
       {variant === "header" && <HeaderNavlinks />}
-      {variant === "navbar" && <NavbarNavlinks />}
+      {variant !== "header" && <NavbarNavlinks variant={variant} />}
     </div>
   );
 }

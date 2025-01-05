@@ -3,11 +3,13 @@ import Header from "../../common/header/Header";
 import Navbar from "../../common/navbar/Navbar";
 import styles from "./BaseLayout.module.css";
 
-function BaseLayout({ children }) {
+function BaseLayout({ children, variant }) {
   return (
     <div className={styles.baseLayout}>
       <Header />
-      <Navbar />
+
+      {/* hompage or default */}
+      <Navbar variant={variant} />
 
       <div className={styles.mainsection}>
         <div className={styles.contentArea}>{children}</div>

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import DropdownMenu from "./DropdownMenu";
 
-function NavbarNavlinks() {
+function NavbarNavlinks({ variant }) {
   const [dropdowns, setDropdowns] = useState({
     howToEnjoyZ: false,
     rewardAndPromotion: false,
@@ -16,6 +16,12 @@ function NavbarNavlinks() {
       ...prevState,
       [menu]: !prevState[menu],
     }));
+  };
+
+  const isHomapage = () => {
+    if (variant === "homepage") {
+      return true;
+    }
   };
 
   return (
@@ -91,11 +97,13 @@ function NavbarNavlinks() {
         />
       </div>
 
-      <div className={styles.rightSection}>
-        <NavLink to="#create-account-page" className={styles.navlink}>
-          <button className={styles.createAccBtn}>Create Account</button>
-        </NavLink>
-      </div>
+      {isHomapage() && (
+        <div className={styles.rightSection}>
+          <NavLink to="#create-account-page" className={styles.navlink}>
+            <button className={styles.createAccBtn}>Create Account</button>
+          </NavLink>
+        </div>
+      )}
     </div>
   );
 }
