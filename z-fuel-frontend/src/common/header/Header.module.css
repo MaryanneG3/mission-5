@@ -1,0 +1,76 @@
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  height: 65px;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: 50px;
+  max-width: 50px;
+  margin-inline: 30px;
+}
+
+.forPersonalBtn {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+
+  background-color: #f36f21;
+  color: white;
+  font-weight: 600;
+}
+
+.logoImg {
+  width: 100%;
+  height: 100%;
+  margin-inline: 10px;
+}
+
+.navlinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* ------------------------------------------- */
+/* SEARCHBAR */
+
+.searchBarContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.searchBarContainer .icon {
+  font-size: 14px;
+  /* background-color: green; */
+}
+
+.searchBarContainer label {
+  font-size: 14px;
+}
+
+.searchBarContainer input {
+  padding: 2px 5px;
+  margin-inline: 5px;
+  /* background-color: yellow; */
+}

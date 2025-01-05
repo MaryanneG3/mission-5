@@ -1,0 +1,24 @@
+.navbarContainer {
+  /* position: sticky; */
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+
+  height: 45px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #d93a3f;
+  color: white;
+  margin-top: auto;
+}
