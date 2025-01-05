@@ -8,11 +8,36 @@
 }
 
 .welcomeToZ {
-  background-image: url("/images/homepage/z-fuel-homapage-titlebar.jpg");
+  background-image: url("/images/titlebar/z-fuel-homapage-titlebar.jpg");
 }
 
 .findStation {
-  background-image: url("/images/findastation/find-a-station-titlebar.jpg");
+  background-image: url("/images/titlebar/find-a-station-titlebar.jpg");
+}
+
+.createAccSignIn {
+  background-image: url("/images/titlebar/start-up-titlebar.jpg");
+  background-position: 50% 50%;
+}
+
+.shareTank {
+  background-image: url("/images/titlebar/shareTank-titlebar.jpg");
+  background-position: 60% 40%;
+}
+
+.onlineOrder {
+  background-image: url("/images/titlebar/online-order-titlebar.png");
+  background-position: 60% 40%;
+}
+
+.savings {
+  background-image: url("/images/titlebar/savings-titlebar.jpg");
+  background-position: 50% 50%;
+}
+
+.paymentCards {
+  background-image: url("/images/titlebar/payment-card-titlebar.png");
+  background-position: 50% 50%;
 }
 
 .findStation .backgroundColor {

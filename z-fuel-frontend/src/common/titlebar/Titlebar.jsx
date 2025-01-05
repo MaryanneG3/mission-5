@@ -14,6 +14,8 @@ import { NavLink } from "react-router-dom";
 //              - image on right section
 
 function Titlebar({ variant, backgroundImage, title }) {
+  let backgroundClass;
+
   const isDefault = () => {
     if (variant === "default") {
       return true;
@@ -32,18 +34,37 @@ function Titlebar({ variant, backgroundImage, title }) {
     }
   };
 
-  let backgroundClass;
+  // Use startUp image for create account and signin title bars
 
   switch (backgroundImage) {
     case "welcomeToZ":
       backgroundClass = styles.welcomeToZ;
       break;
+
     case "find-a-station":
       backgroundClass = styles.findStation;
       break;
+
+    case "createAccSignIn":
+      backgroundClass = styles.createAccSignIn;
+      break;
+
     case "shareTank":
       backgroundClass = styles.shareTank;
       break;
+
+    case "onlineOrder":
+      backgroundClass = styles.onlineOrder;
+      break;
+
+    case "savings":
+      backgroundClass = styles.savings;
+      break;
+
+    case "paymentCards":
+      backgroundClass = styles.paymentCards;
+      break;
+
     default:
       backgroundClass = styles.welcomeToZ;
       break;
@@ -72,6 +93,14 @@ function Titlebar({ variant, backgroundImage, title }) {
                 />
               </NavLink>
             </div>
+          </div>
+        </div>
+      )}
+
+      {isShareTank() && (
+        <div className={`${styles.titlebar} ${backgroundClass}`}>
+          <div className={styles.backgroundColor}>
+            <h1>{title}</h1>
           </div>
         </div>
       )}
