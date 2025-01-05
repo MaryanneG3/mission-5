@@ -1,4 +1,3 @@
-
 .stationCard {
   display: flex;
   flex-direction: column;
@@ -12,12 +11,13 @@
   overflow: hidden;
   color: #ffffff;
   font-family: "Roboto", sans-serif;
-  width: 100%;
-  height: 250;
+  height: 250px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border: 5px solid rgba(255, 255, 255, 0);
-  max-width: 490px;
+  width: 100%;
+
 }
+
 
 .stationName {
   font-size: 1.5rem;
@@ -26,7 +26,7 @@
 }
 
 .stationAddress {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 1rem;
 }
 
@@ -45,6 +45,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .phoneIcon {
@@ -56,8 +57,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Aligns the text to the left */
+  margin-right: 7rem;
   gap: 5px; /* Space between each row */
-  font-size: 16px; /* Adjust based on the image */
+  font-size: 0.8rem;
   color: white; /* Matches the white text in the image */
   font-family: Roboto, sans-serif; /* Matches the font in the image */
 }
@@ -65,16 +67,41 @@
 .hourRow {
   display: flex;
   justify-content: space-between;
-  width: 100%; /* Ensures alignment across the card */
+  width: 100%;
+  padding: 0; /* No extra padding */
+  margin: 0; /* Uniform margins */
 }
 
 .day {
-  font-weight: bold; /* Matches the bold text for days */
-  width: 60px; /* Fixed width for proper alignment */
-  text-align: left; /* Aligns the day name to the left */
+  min-width: 60px;
+  flex-shrink: 0; /* Prevents shrinking */
+  text-align: left;
 }
 
 .hours {
-  text-align: right; /* Aligns the hours to the right */
-  flex-grow: 1; /* Ensures the hours align on the right side */
+  text-align: right;
+  flex-grow: 1; /* Ensures hours take up remaining space */
+  flex-shrink: 0;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Rows align fully across width */
+  gap: 5px; /* Consistent spacing between rows */
+  font-size: 0.8rem;
+  color: white;
+  font-family: Roboto, sans-serif;
+}
+
+.services {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.serviceIcon {
+  width: 18px;
+  height: 18px;
 }
