@@ -52,11 +52,13 @@
   flex-direction: row;
   justify-content: center;
   gap: 12px;
-
+  margin-left: 200px;
   padding: 8px 10px;
+  border: solid white 2px;
   border-radius: 25px;
   text-decoration: none;
-  background-color: #d3b80a;
+  color: white;
+  /* background-color: #d3b80a; */
 }
 
 .findStationLink .icon {
