@@ -1,0 +1,64 @@
+.titlebar {
+  width: 100vw;
+  height: 150px;
+
+  background-size: cover;
+  background-position: 70% 30%;
+  opacity: 100%;
+}
+
+.welcomeToZ {
+  background-image: url("/images/homepage/z-fuel-homapage-titlebar.jpg");
+}
+
+.findStation {
+  background-image: url("/images/findastation/find-a-station-titlebar.jpg");
+}
+
+.findStation .backgroundColor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+}
+
+.backgroundColor {
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: center;
+  background: linear-gradient(to right, #e1610b, #d3b80a);
+  opacity: 70%;
+  height: 100%;
+  width: 100%;
+  padding-inline: 80px;
+}
+
+.titlebar h1 {
+  color: white;
+  font-size: 3em;
+  text-shadow: 20px 20px 5px rgba(0, 0, 0, 0.5); /* 2px horizontal, 2px vertical, 5px blur, black shadow with opacity - took from gpt */
+}
+
+.titlebar h2 {
+  color: white;
+  /* font-size: 3em; */
+  text-shadow: 20px 20px 5px rgba(0, 0, 0, 0.5); /* 2px horizontal, 2px vertical, 5px blur, black shadow with opacity - took from gpt */
+}
+
+/* Buttons */
+
+.findStationLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 8px 10px;
+  border-radius: 25px;
+  text-decoration: none;
+  background-color: #d3b80a;
+}
+
+.findStationLink .icon {
+  font-size: 18px;
+}
