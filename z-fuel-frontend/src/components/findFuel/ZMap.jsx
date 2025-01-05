@@ -8,7 +8,7 @@ import {
 import styles from "./ZMap.module.css";
 
 import StationCard from "./StationCard";
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
 
 function ZMap() {
   //   const [open, setOpen] = useState(false);
@@ -48,9 +48,8 @@ function ZMap() {
   }, []);
 
   return (
-    
     <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-        <NavBar/>
+      {/* <NavBar/> */}
       {/* station cards */}
 
       <div>

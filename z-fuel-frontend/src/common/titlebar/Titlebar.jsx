@@ -57,6 +57,14 @@ function Titlebar({ variant, backgroundImage, title }) {
       backgroundClass = styles.onlineOrder;
       break;
 
+    case "savings":
+      backgroundClass = styles.savings;
+      break;
+
+    case "paymentCards":
+      backgroundClass = styles.paymentCards;
+      break;
+
     default:
       backgroundClass = styles.welcomeToZ;
       break;

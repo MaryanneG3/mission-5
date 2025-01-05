@@ -30,6 +30,16 @@
   background-position: 60% 40%;
 }
 
+.savings {
+  background-image: url("/images/titlebar/savings-titlebar.jpg");
+  background-position: 50% 50%;
+}
+
+.paymentCards {
+  background-image: url("/images/titlebar/payment-card-titlebar.png");
+  background-position: 50% 50%;
+}
+
 .findStation .backgroundColor {
   display: flex;
   flex-direction: column;
