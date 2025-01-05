@@ -1,13 +1,13 @@
 import React from "react";
 import ZMap from "../../components/findFuel/ZMap";
-import BaseLayout from "../../layouts/baselayout/BaseLayout";
+import NavBar from "../../components/findFuel/NavBar";
+import HeaderComponent from "../../components/findFuel/HeaderComponent";
 
 function FindFuelStation() {
   return (
     <>
-      <BaseLayout>
-        <ZMap />
-      </BaseLayout>
+      <NavBar /> <HeaderComponent />
+      <ZMap />
     </>
   );
 }

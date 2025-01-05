@@ -5,7 +5,7 @@ function NavBar() {
     <div className={styles.navContainer}>
       <div className={styles.leftSide}>
         <a href="/" className={styles.logo}>
-          <img src="path-to-logo.png" alt="Logo" />
+          <img src="/images/logo.png" alt="Logo" />
         </a>
         <a className={styles.navButtonLeft}>For personal</a>
       </div>
@@ -16,10 +16,10 @@ function NavBar() {
         </ul>
         <div className={styles.icons}>
           <button className={styles.iconButton}>
-            <img src="shopping-cart-icon.png" alt="Cart" />
+            <img src="/images/shoppingCartIcon.png" alt="Cart" />
           </button>
           <button className={styles.iconButton}>
-            <img src="search-icon.png" alt="Search" />
+            <img src="/images/blackSearchIcon.png" alt="Search" />
           </button>
         </div>
         <a className={styles.navButtonRight}>

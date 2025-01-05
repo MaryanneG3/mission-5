@@ -1,13 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const stationSchema = new mongoose.Schema({
   name: { type: String, required: true },
   address: { type: String, required: true },
   suburb: { type: String, required: true },
+  nearbySuburbs: [String],
   city: { type: String, required: true },
   longitude: { type: Number, required: true },
   latitude: { type: Number, required: true },
-  hours: { //object with string values for each day
+  hours: {
+    //object with string values for each day
     sunday: String,
     monday: String,
     tuesday: String,
