@@ -1,22 +1,107 @@
 .stationCard {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
   padding: 1rem;
-  border: 1px solid #ddd;
   border-radius: 18px;
   background-image: url("/images/orangeGradient.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 462px;
-  height: 193px;
-  color: antiquewhite;
-  font-family: Roboto;
+  background-clip: padding-box;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  height: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 5px solid rgba(255, 255, 255, 0);
+  width: 100%;
+
+}
+
+
+.stationName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.stationAddress {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .description {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contactInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.phoneIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns the text to the left */
+  margin-right: 7rem;
+  gap: 5px; /* Space between each row */
+  font-size: 0.8rem;
+  color: white; /* Matches the white text in the image */
+  font-family: Roboto, sans-serif; /* Matches the font in the image */
+}
+
+.hourRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0; /* No extra padding */
+  margin: 0; /* Uniform margins */
+}
+
+.day {
+  min-width: 60px;
+  flex-shrink: 0; /* Prevents shrinking */
+  text-align: left;
+}
+
+.hours {
+  text-align: right;
+  flex-grow: 1; /* Ensures hours take up remaining space */
+  flex-shrink: 0;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Rows align fully across width */
+  gap: 5px; /* Consistent spacing between rows */
+  font-size: 0.8rem;
+  color: white;
+  font-family: Roboto, sans-serif;
+}
+
+.services {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.serviceIcon {
+  width: 18px;
+  height: 18px;
 }

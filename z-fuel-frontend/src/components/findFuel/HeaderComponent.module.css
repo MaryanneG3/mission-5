@@ -1,0 +1,22 @@
+.headerContainer {
+  background-image: url("/images/banner.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-clip: padding-box;
+  overflow: hidden;
+  width: 100%;
+  height: 100px;
+}
+
+.headerText {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-family: Roboto;
+  font-weight: bold;
+  color: white;
+  margin-left: 1rem;
+}
