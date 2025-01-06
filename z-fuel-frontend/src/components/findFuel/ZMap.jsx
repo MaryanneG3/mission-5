@@ -26,7 +26,7 @@ function ZMap() {
     fetchStations(); // call fetchStations to trigger the data fetch
   }, []);
 
-  //SEARCH FUNCTIONALITY
+  //SEARCH FUNCTIONALITY 
   const handleSearchInputChange = (input) => {
     setSearchInput(input); //updates searchInput state with cleaned input from search array
     console.log(searchInput);

@@ -17,14 +17,3 @@ router.get("/stations", async (req, res) => {
 });
 
 module.exports = router;
-
-db.stations.updateOne(
-  { _id: ObjectId("67734782db3bdb7462088c33") },
-  {
-    $push: {
-      nearbySuburbs: {
-        $each: ["Takanini", "Drury", "Papakura", "Opaheke"],
-      },
-    },
-  }
-);
