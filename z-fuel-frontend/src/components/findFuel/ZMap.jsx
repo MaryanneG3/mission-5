@@ -3,11 +3,7 @@ import styles from "./ZMap.module.css";
 
 import MapComponent from "./MapComponent";
 import StationCard from "./StationCard";
-<<<<<<< HEAD
-// import NavBar from "./NavBar";
-=======
 import SearchBar from "./searchBar";
->>>>>>> main
 
 function ZMap() {
   const [stations, setStations] = useState([]); // stores stations data

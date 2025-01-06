@@ -38,8 +38,8 @@ function Homepage() {
 
       <Titlebar
         variant="default"
-        backgroundImage="savings"
-        title="Fuel your savings. Compare prices now."
+        backgroundImage="priceComparison"
+        title="Fuel your Savings - Compare prices now."
       />
 
       <br />

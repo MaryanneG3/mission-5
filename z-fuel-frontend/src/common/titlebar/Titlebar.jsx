@@ -57,8 +57,8 @@ function Titlebar({ variant, backgroundImage, title }) {
       backgroundClass = styles.onlineOrder;
       break;
 
-    case "savings":
-      backgroundClass = styles.savings;
+    case "priceComparison":
+      backgroundClass = styles.priceComparison;
       break;
 
     case "paymentCards":
@@ -73,16 +73,16 @@ function Titlebar({ variant, backgroundImage, title }) {
   return (
     <>
       {isDefault() && (
-        <div className={`${styles.titlebar} ${backgroundClass}`}>
-          <div className={styles.backgroundColor}>
+        <div className={styles.backgroundColor}>
+          <div className={`${styles.titlebar} ${backgroundClass}`}>
             <h1>{title}</h1>
           </div>
         </div>
       )}
 
       {isFindStation() && (
-        <div className={`${styles.titlebar} ${backgroundClass}`}>
-          <div className={styles.backgroundColor}>
+        <div className={styles.backgroundColor}>
+          <div className={`${styles.titlebar} ${backgroundClass}`}>
             <h2>{title}</h2>
             <div className={styles.findStationButton}>
               <NavLink to="/find-a-station" className={styles.findStationLink}>
@@ -98,8 +98,8 @@ function Titlebar({ variant, backgroundImage, title }) {
       )}
 
       {isShareTank() && (
-        <div className={`${styles.titlebar} ${backgroundClass}`}>
-          <div className={styles.backgroundColor}>
+        <div className={styles.backgroundColor}>
+          <div className={`${styles.titlebar} ${backgroundClass}`}>
             <h1>{title}</h1>
           </div>
         </div>
