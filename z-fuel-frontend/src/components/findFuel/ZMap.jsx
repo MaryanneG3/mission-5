@@ -26,17 +26,34 @@ function ZMap() {
     fetchStations(); // call fetchStations to trigger the data fetch
   }, []);
 
+  //SEARCH FUNCTIONALITY
   const handleSearchInputChange = (input) => {
-    setSearchInput(input); //updates searchInput state in ZMap
+    setSearchInput(input); //updates searchInput state with cleaned input from search array
+    console.log(searchInput);
   };
-  //create new ARRAY called filtered stations containing stations that  match the users input by filtering through original stations array
-  const filteredStations = stations.filter((station) => {
-    return station.nearbySuburbs.some((suburb) =>
-      suburb.toLowerCase().includes(searchInput.toLowerCase())
+  const filteredStations =
+    searchInput && searchInput.length > 0
+      ? stations.filter((station) => {
+          return searchInput.some((term) =>
+            station.nearbySuburbs.some(
+              (suburb) => suburb.toLowerCase().includes(term) // check if any term matches any suburb (case-insensitive)
+            )
+          );
+        })
+      : stations; // if no input, return all stations
+      
+  // display results or message if no matches
+  const content =
+    filteredStations.length > 0 ? (
+      filteredStations.map((station, index) => (
+        <StationCard key={index} station={station} />
+      ))
+    ) : (
+      <div className={styles.noResultsMsg}>
+        Sorry, no results found.
+        <br /> Please try again
+      </div> // message when no matches are found
     );
-  });
-
-  console.table("filtered stations", filteredStations);
   return (
     <div className={styles.container}>
       <div className={styles.leftContainer}>
@@ -47,9 +64,7 @@ function ZMap() {
         />
 
         {/* station cards section */}
-        {filteredStations.map((station, index) => (
-          <StationCard key={index} station={station} />
-        ))}
+        {content}
       </div>
 
       {/* map section */}

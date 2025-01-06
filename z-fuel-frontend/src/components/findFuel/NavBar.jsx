@@ -19,7 +19,7 @@ function NavBar() {
             <img src="/images/shoppingCartIcon.png" alt="Cart" />
           </button>
           <button className={styles.iconButton}>
-            <img src="/images/blackSearchIcon.png" alt="Search" />
+            <img src="/images/searchIcon.png" alt="Search" />
           </button>
         </div>
         <a className={styles.navButtonRight}>

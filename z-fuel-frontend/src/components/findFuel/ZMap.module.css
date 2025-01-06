@@ -1,18 +1,37 @@
 .container {
   display: flex;
+  justify-content: center;
+  gap: 3rem;
   background-image: url("/images/ellipse.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: #f8f8f8;
   padding-left: 1.5rem;
+  margin: 2.2rem 0;
 }
 
 .leftContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   gap: 20px;
-  align-items: center;
+  align-items: flex-start; /* Align children to the left */
   width: 33.3%;
+  height: 100%;
+  margin: 3rem 0;
+}
+
+.rightContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* if no station cards match, show message */
+.noResultsMsg{
+  font-family: Roboto;
+  color: #6c6c6c;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
 }
