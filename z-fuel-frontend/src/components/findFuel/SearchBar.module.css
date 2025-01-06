@@ -1,13 +1,13 @@
 .searchContainer {
   display: flex;
-  align-items: center;
+  justify-content: flex-start;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
   width: 100%;
   max-width: 490px;
-  margin-top: 45px;
+  position: relative;
 }
 
 .icon {
