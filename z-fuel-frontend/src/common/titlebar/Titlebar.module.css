@@ -1,7 +1,7 @@
 .titlebar {
   display: flex;
   align-items: center;
-  height: 150px;
+  height: 100%;
   width: 100%;
   background-size: cover;
   opacity: 80%;
@@ -46,6 +46,7 @@
   /* background: linear-gradient(to right, #f36e20, #ffdd01); */
   background-image: url("/images/gradients/orangeGradient.png");
   background-size: cover;
+  height: 150px;
   opacity: 100%;
 }
 
@@ -57,19 +58,21 @@
   text-shadow: 20px 20px 5px rgba(0, 0, 0, 0.5); /* 2px horizontal, 2px vertical, 5px blur, black shadow with opacity - took from gpt */
 }
 
-.titlebar h2,
-.titlebar h3 {
+.titlebar h2 {
   color: white;
+  font-size: 28px;
   position: relative;
   z-index: 1;
   text-shadow: 20px 20px 5px rgba(0, 0, 0, 0.5); /* 2px horizontal, 2px vertical, 5px blur, black shadow with opacity - took from gpt */
 }
 
+/* find station */
+
 .backgroundColor .findStation {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Buttons */
@@ -90,4 +93,17 @@
 
 .findStationLink .icon {
   font-size: 18px;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  /* background-color: aqua; */
+}
+
+.rightSection {
+  background-color: aqua;
+  width: 50%;
 }

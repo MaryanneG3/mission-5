@@ -5,6 +5,32 @@ import styles from "./Homepage.module.css";
 import homepageImage from "../../../public/images/homepage/Homepage-family-photo.png";
 
 function Homepage() {
+  const serviceLinks = [
+    {
+      serviceTitle: "Sharetank",
+      serviceDescription:
+        "Buy fuel and share with up to 5 friends and family with Sharetank",
+      btnTitle: "Sharetank",
+      btnLink: "/sharetank",
+      imgSrc: "../../../public/images/homepage/share-tank.png",
+    },
+    {
+      serviceTitle: "Price comparison",
+      serviceDescription: "Compare fuel prices with nearby stations ",
+      btnTitle: "Price comparison",
+      btnLink: "/price-comparison",
+      imgSrc: "../../../public/images/homepage/price-comparison.png",
+    },
+    {
+      serviceTitle: "Order food online",
+      serviceDescription:
+        "Order food and drinks via the app and pick up at the station ",
+      btnTitle: "Order food",
+      btnLink: "/order-food-online",
+      imgSrc: "../../../public/images/homepage/order-online.png",
+    },
+  ];
+
   return (
     <BaseLayout variant="homepage">
       <Titlebar
@@ -26,58 +52,31 @@ function Homepage() {
         backgroundImage="find-a-station"
         title="Find a Z Station"
       />
-      <br />
+      <main className={styles.mainContainer}>
+        {serviceLinks.map((service, index) => (
+          <div
+            key={index}
+            className={`${styles.ContentContainer} ${
+              index % 2 === 1 ? styles.ContentContainerFlipped : ""
+            }`}
+          >
+            <div
+              className={`${styles.serviceDetailsContainer} ${
+                index % 2 === 1 ? styles.serviceDetailsContainerFlipped : ""
+              }`}
+            >
+              <div className={styles.serviceDetails}>
+                <h2>{service.serviceTitle}</h2>
+                <p>{service.serviceDescription}</p>
+                <button>{service.btnTitle}</button>
+              </div>
+            </div>
 
-      <Titlebar
-        variant="default"
-        backgroundImage="createAccSignIn"
-        title="Create Account"
-      />
-
-      <br />
-
-      <Titlebar
-        variant="default"
-        backgroundImage="priceComparison"
-        title="Fuel your Savings - Compare prices now."
-      />
-
-      <br />
-
-      <Titlebar
-        variant="default"
-        backgroundImage="shareTank"
-        title="Share Tank"
-      />
-
-      <br />
-
-      <Titlebar
-        variant="default"
-        backgroundImage="onlineOrder"
-        title="Crave it. Order it. Enjoy it."
-      />
-
-      <br />
-
-      <Titlebar
-        variant="default"
-        backgroundImage="paymentCards"
-        title="My Payment Cards"
-      />
-
-      <main className={styles.main}>
-        <div className={styles.shareTankContainer}>
-          Share Tank - Placeholder
-        </div>
-
-        <div className={styles.priceComparisonContainer}>
-          Price Comparison - Placeholder
-        </div>
-
-        <div className={styles.orderFoodOnlineContainer}>
-          Order Food Online - Placeholder
-        </div>
+            <div className={styles.serviceImageContainer}>
+              <img className={styles.serviceImg} src={service.imgSrc} />
+            </div>
+          </div>
+        ))}
       </main>
     </BaseLayout>
   );
