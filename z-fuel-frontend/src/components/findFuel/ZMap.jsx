@@ -3,7 +3,6 @@ import styles from "./ZMap.module.css";
 
 import MapComponent from "./MapComponent";
 import StationCard from "./StationCard";
-import NavBar from "./NavBar";
 import SearchBar from "./searchBar";
 
 function ZMap() {
