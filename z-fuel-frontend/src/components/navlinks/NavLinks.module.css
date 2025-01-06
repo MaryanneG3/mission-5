@@ -44,6 +44,7 @@
   background-color: inherit;
   border: none;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .icon {
@@ -135,8 +136,8 @@
 
   padding: 10px 20px;
   border-radius: 12px;
-
-  background-color: #1e196b;
+  border: none;
+  background: linear-gradient(to right, #1e196b, #2e26a1);
   color: white;
   font-weight: 600;
 }
@@ -151,8 +152,8 @@
   border: none;
   text-decoration: none;
   border-radius: 18px;
-
-  background-color: #1e196b;
+  border: none;
+  background: linear-gradient(to right, #1e196b, #2e26a1);
   color: white;
   font-weight: 600;
 }
