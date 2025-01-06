@@ -41,15 +41,19 @@ function ZMap() {
             )
           );
         })
-      : stations; // If no input, return all stations
-  // Display results or message if no matches
+      : stations; // if no input, return all stations
+      
+  // display results or message if no matches
   const content =
     filteredStations.length > 0 ? (
       filteredStations.map((station, index) => (
         <StationCard key={index} station={station} />
       ))
     ) : (
-      <div>No results found</div> // Message when no matches are found
+      <div className={styles.noResultsMsg}>
+        Sorry, no results found.
+        <br /> Please try again
+      </div> // message when no matches are found
     );
   return (
     <div className={styles.container}>
