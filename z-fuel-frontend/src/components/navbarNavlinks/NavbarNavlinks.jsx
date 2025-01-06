@@ -77,7 +77,7 @@ function NavbarNavlinks({ variant }) {
 
       {isHomapage() && (
         <div className={styles.rightSection}>
-          <NavLink to="#create-account-page" className={styles.navlink}>
+          <NavLink to="/create-account" className={styles.navlink}>
             <button className={styles.createAccBtn}>Create Account</button>
           </NavLink>
         </div>
