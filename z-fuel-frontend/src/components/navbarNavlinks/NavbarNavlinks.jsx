@@ -35,18 +35,10 @@ function NavbarNavlinks({ variant }) {
           toggleMenu={toggleMenu}
           links={[
             {
-              to: "#antiques-and-collectables-page",
-              label: "Antiques and Collectables",
+              to: "/order-online-landing-page",
+              label: "Order online",
             },
-            { to: "#art-page", label: "Art" },
-            { to: "#baby-gear-page", label: "Baby gear" },
-            { to: "#books", label: "Books" },
-            { to: "#bilding-and-renovation", label: "Building and Renovation" },
-            {
-              to: "#biz-farm-and-industry",
-              label: "Business, Farming and Industry",
-            },
-            { to: "#clothing-and-fashion-page", label: "Clothing and Fashion" },
+            { to: "/share-tank", label: "Share Tank" },
           ]}
         />
 
@@ -58,18 +50,12 @@ function NavbarNavlinks({ variant }) {
           toggleMenu={toggleMenu}
           links={[
             {
-              to: "#antiques-and-collectables-page",
-              label: "Antiques and Collectables",
+              to: "/pumped",
+              label: "Pumped",
             },
-            { to: "#art-page", label: "Art" },
-            { to: "#baby-gear-page", label: "Baby gear" },
-            { to: "#books", label: "Books" },
-            { to: "#bilding-and-renovation", label: "Building and Renovation" },
-            {
-              to: "#biz-farm-and-industry",
-              label: "Business, Farming and Industry",
-            },
-            { to: "#clothing-and-fashion-page", label: "Clothing and Fashion" },
+            { to: "/airpoints", label: "Airpoints" },
+            { to: "/fuel-up", label: "Fuelup" },
+            { to: "/promos", label: "Promotions" },
           ]}
         />
 
@@ -81,18 +67,10 @@ function NavbarNavlinks({ variant }) {
           toggleMenu={toggleMenu}
           links={[
             {
-              to: "#antiques-and-collectables-page",
-              label: "Antiques and Collectables",
+              to: "/find-a-station",
+              label: "Find a Station",
             },
-            { to: "#art-page", label: "Art" },
-            { to: "#baby-gear-page", label: "Baby gear" },
-            { to: "#books", label: "Books" },
-            { to: "#bilding-and-renovation", label: "Building and Renovation" },
-            {
-              to: "#biz-farm-and-industry",
-              label: "Business, Farming and Industry",
-            },
-            { to: "#clothing-and-fashion-page", label: "Clothing and Fashion" },
+            { to: "/price-comparison", label: "Compare Prices" },
           ]}
         />
       </div>

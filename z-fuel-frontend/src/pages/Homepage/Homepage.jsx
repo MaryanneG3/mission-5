@@ -1,6 +1,7 @@
 import Titlebar from "../../common/titlebar/Titlebar";
 import BaseLayout from "../../layouts/baselayout/BaseLayout";
 import styles from "./Homepage.module.css";
+import { NavLink } from "react-router-dom";
 
 import homepageImage from "../../../public/images/homepage/Homepage-family-photo.png";
 
@@ -11,7 +12,7 @@ function Homepage() {
       serviceDescription:
         "Buy fuel and share with up to 5 friends and family with Sharetank",
       btnTitle: "Sharetank",
-      btnLink: "/sharetank",
+      btnLink: "/share-tank",
       imgSrc: "../../../public/images/homepage/share-tank.png",
     },
     {
@@ -26,7 +27,7 @@ function Homepage() {
       serviceDescription:
         "Order food and drinks via the app and pick up at the station ",
       btnTitle: "Order food",
-      btnLink: "/order-food-online",
+      btnLink: "/order-online-landing-page",
       imgSrc: "../../../public/images/homepage/order-online.png",
     },
   ];
@@ -68,7 +69,10 @@ function Homepage() {
               <div className={styles.serviceDetails}>
                 <h2>{service.serviceTitle}</h2>
                 <p>{service.serviceDescription}</p>
-                <button>{service.btnTitle}</button>
+
+                <NavLink to={service.btnLink} className={styles.serviceBtn}>
+                  {service.btnTitle}
+                </NavLink>
               </div>
             </div>
 

@@ -68,7 +68,10 @@
   font-weight: 500;
 }
 
-.serviceDetails button {
+.serviceDetails .serviceBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 600;
   width: 160px;
   margin-top: 10px;
@@ -77,6 +80,7 @@
   border-radius: 20px;
   background-color: #f36f21;
   color: white;
+  text-decoration: none;
 }
 
 .serviceImageContainer {
