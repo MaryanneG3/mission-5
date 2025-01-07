@@ -69,8 +69,17 @@
   color: black;
 }
 
+.headerlinkscontainer.navlink,
+.navbarlinksContainer .navlink:hover {
+  cursor: pointer;
+}
+
 .navbarlinksContainer .icon {
   margin-inline: 15px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 /* ------------------------------------------------ */

@@ -16,11 +16,11 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  gap: 40px;
+  justify-content: space-around;
+  gap: 100px;
   margin-block: 10px;
-  padding: 30px 10px;
-  height: 800px;
+  padding: 60px 10px;
+  /* height: 80%; */
   width: 100vw;
   /* background-color: pink; */
 }
@@ -28,7 +28,7 @@
 .ContentContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   /* padding: 30px; */
   height: 200px;
@@ -84,7 +84,7 @@
 }
 
 .serviceImageContainer {
-  width: 400px;
+  width: 350px;
   display: flex;
   object-fit: contain;
   align-items: center;
