@@ -1,17 +1,17 @@
 import BaseLayout from "../../layouts/baselayout/BaseLayout";
 import Titlebar from "../../common/titlebar/Titlebar";
 
-function ShareTank() {
+function PriceComparison() {
   return (
     <BaseLayout variant="default">
       <Titlebar
         variant="default"
-        backgroundImage="shareTank"
-        title="Share Tank"
+        backgroundImage="priceComparison"
+        title="Fuel your Savings - Compare prices now."
       />
-      Welcome to the ShareTank page
+      Welcome to the Price Comparison page
     </BaseLayout>
   );
 }
 
-export default ShareTank;
+export default PriceComparison;

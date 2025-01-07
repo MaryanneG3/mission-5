@@ -1,73 +1,78 @@
 .titlebar {
-  width: 100vw;
-  height: 150px;
-
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
   background-size: cover;
-  background-position: 70% 30%;
-  opacity: 100%;
+  opacity: 80%;
+
+  padding-inline: 80px;
 }
 
 .welcomeToZ {
-  background-image: url("/images/titlebar/z-fuel-homapage-titlebar.jpg");
+  background-image: url("/images/titlebars/z fuel station.png");
 }
 
 .findStation {
-  background-image: url("/images/titlebar/find-a-station-titlebar.jpg");
+  background-image: url("/images/titlebars/🌎 Map Maker_  (Assassins Creed IV).png");
 }
 
 .createAccSignIn {
-  background-image: url("/images/titlebar/start-up-titlebar.jpg");
-  background-position: 50% 50%;
+  background-image: url("/images/titlebars/create-account.png");
+  /* background-position: 50% 50%; */
 }
 
 .shareTank {
-  background-image: url("/images/titlebar/shareTank-titlebar.jpg");
-  background-position: 60% 40%;
+  background-image: url("/images/titlebars/share-tank.png");
+  /* background-position: 60% 40%; */
 }
 
 .onlineOrder {
-  background-image: url("/images/titlebar/online-order-titlebar.png");
-  background-position: 60% 40%;
+  background-image: url("/images/titlebars/coffee-doodle.png");
+  /* background-position: 60% 40%; */
 }
 
-.savings {
-  background-image: url("/images/titlebar/savings-titlebar.jpg");
-  background-position: 50% 50%;
+.priceComparison {
+  background-image: url("/images/titlebars/money-doodle.png");
+  /* background-position: 50% 50%; */
 }
 
 .paymentCards {
-  background-image: url("/images/titlebar/payment-card-titlebar.png");
-  background-position: 50% 50%;
-}
-
-.findStation .backgroundColor {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: start;
+  background-image: url("/images/titlebars/payment.png");
+  /* background-position: 50% 50%; */
 }
 
 .backgroundColor {
-  display: flex;
-  /* justify-content: flex-start; */
-  align-items: center;
-  background: linear-gradient(to right, #e1610b, #d3b80a);
-  opacity: 70%;
-  height: 100%;
-  width: 100%;
-  padding-inline: 80px;
+  /* background: linear-gradient(to right, #f36e20, #ffdd01); */
+  background-image: url("/images/gradients/orangeGradient.png");
+  background-size: cover;
+  height: 150px;
+  opacity: 100%;
 }
 
 .titlebar h1 {
   color: white;
   font-size: 3em;
+  position: relative;
+  z-index: 1;
   text-shadow: 20px 20px 5px rgba(0, 0, 0, 0.5); /* 2px horizontal, 2px vertical, 5px blur, black shadow with opacity - took from gpt */
 }
 
 .titlebar h2 {
   color: white;
-  /* font-size: 3em; */
+  font-size: 28px;
+  position: relative;
+  z-index: 1;
   text-shadow: 20px 20px 5px rgba(0, 0, 0, 0.5); /* 2px horizontal, 2px vertical, 5px blur, black shadow with opacity - took from gpt */
+}
+
+/* find station */
+
+.backgroundColor .findStation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Buttons */
@@ -88,4 +93,17 @@
 
 .findStationLink .icon {
   font-size: 18px;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  /* background-color: aqua; */
+}
+
+.rightSection {
+  background-color: aqua;
+  width: 50%;
 }
