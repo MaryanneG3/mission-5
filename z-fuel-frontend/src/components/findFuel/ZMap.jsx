@@ -9,6 +9,7 @@ function ZMap() {
   const [stations, setStations] = useState([]); // stores stations data
   const [searchInput, setSearchInput] = useState("");
 
+ // ******************** //
   useEffect(() => {
     const fetchStations = async () => {
       try {
