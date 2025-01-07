@@ -3,10 +3,12 @@ import styles from "./Footer.module.css";
 function Footer() {
   return (
     <div className={styles.footerContainer}>
-      <button className={styles.contactButton}>
-        Contact Us
-        <img className={styles.contactIcon} src="/images/arrowPurple.png" />
-      </button>
+      <div className={styles.footerBtnContainer}>
+        <button className={styles.contactButton}>
+          Contact Us
+          <img className={styles.contactIcon} src="/images/arrowPurple.png" />
+        </button>
+      </div>
       <footer className={styles.footer}>
         <div className={styles.logo}>
           <img
