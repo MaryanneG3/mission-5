@@ -19,7 +19,7 @@ function Homepage() {
       serviceTitle: "Price comparison",
       serviceDescription: "Compare fuel prices with nearby stations ",
       btnTitle: "Price comparison",
-      btnLink: "/price-comparison",
+      btnLink: "/compare-prices",
       imgSrc: "../../../public/images/homepage/price-comparison.png",
     },
     {
@@ -84,7 +84,6 @@ function Homepage() {
       </main>
     </BaseLayout>
   );
-  s;
 }
 
 export default Homepage;

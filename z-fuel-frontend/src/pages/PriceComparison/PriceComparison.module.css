@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.heroSection {
+  @apply bg-gradient-to-r from-orange-500 to-yellow-400 flex items-center justify-center relative overflow-hidden;
+  height: 25vh;
+  width: 100%;
+  background-size: cover;
+}
+
+.heroSection::before {
+  content: '';
+  @apply absolute inset-0 bg-center bg-no-repeat opacity-15;
+  background-image: url('/images/priceComp/doodleBackground.png'); /* Ensure this image is correct */
+  background-size: cover;
+  transform: scale(1.2);
+}
+
+.comparisonSection {
+  @apply bg-orange-500 py-8;
+}
+
+.contentContainer {
+  @apply max-w-screen-lg mx-auto p-8;
+}
+
+.searchContainer {
+  @apply flex gap-2 my-8 items-center justify-center;
+}
+
+.searchBox {
+  @apply flex-1 max-w-md border border-gray-300 rounded-lg p-2;
+}
+
+.searchButton {
+  @apply bg-blue-500 text-white py-2 px-4 rounded font-medium text-sm;
+}
+
+.priceGrid {
+  @apply grid grid-cols-3 gap-6; /* Adjust according to your layout needs */
+}
+
+.priceCard {
+  @apply bg-white p-4 rounded-lg shadow-lg flex flex-col items-center;
+}
+
+.fuelIcon {
+  @apply w-20 h-20 object-contain;
+}
