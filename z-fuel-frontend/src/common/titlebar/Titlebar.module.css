@@ -77,17 +77,24 @@
 
 /* Buttons */
 
+.findStatBtn {
+  margin-left: 200px;
+  width: 100%;
+
+  /* background-color: #d3b80a; */
+}
+
 .findStationLink {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 12px;
-  margin-left: 200px;
   padding: 8px 10px;
   border: solid white 2px;
   border-radius: 25px;
   text-decoration: none;
   color: white;
+  width: 200px;
   /* background-color: #d3b80a; */
 }
 
@@ -106,4 +113,25 @@
 .rightSection {
   background-color: aqua;
   width: 50%;
+}
+
+/* Respoonse Design */
+
+/* For screens <= 530, hide the links by default */
+/* @media (min-width: 320) {
+  .findStatBtn {
+    margin-left: 20px;
+  }
+} */
+
+/* For screens <= 950px, hide the links by default */
+@media (max-width: 950px) {
+  .titlebar h1 {
+    font-size: 2em;
+  }
+
+  .findStatBtn {
+    margin-left: 0;
+    /* background-color: pink; */
+  }
 }

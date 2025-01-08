@@ -74,3 +74,28 @@ li {
   margin-bottom: 10px;
   color: #333;
 }
+
+/* For screens <= 950px, hide the links by default */
+@media (max-width: 950px) {
+  .logoImage {
+    display: none;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    gap: 30px;
+  }
+}
+
+/* For screens <= 950px, hide the links by default */
+@media (max-width: 350px) {
+  .footerBtnContainer {
+    display: flex;
+    justify-content: center;
+    /* align-items: right; */
+  }
+}
