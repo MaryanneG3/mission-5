@@ -22,7 +22,7 @@ function MapComponent({ stations }) {
       <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
         <div
           className={styles.mapContainer}
-          style={{ height: "550px", width: "632px" }}
+          style={{ height: "640px", width: "682px" }}
         >
           <Map
             defaultZoom={12}
