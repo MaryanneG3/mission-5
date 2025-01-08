@@ -6,20 +6,21 @@ const stationSchema = new mongoose.Schema({
   suburb: { type: String, required: true },
   nearbySuburbs: [String],
   city: { type: String, required: true },
-  longitude: { type: Number, required: true },
-  latitude: { type: Number, required: true },
-  hours: {
-    //object with string values for each day
-    sunday: String,
-    monday: String,
-    tuesday: String,
-    wednesday: String,
-    thursday: String,
-    friday: String,
-    saturday: String,
+  coordinates: {
+    lat: { type: Number, required: true }, // latitude
+    lng: { type: Number, required: true }, // longitude
   },
-  phone: { type: String, required: true },
-  servicesOffered: [String], //array of strings
+  hours: {
+    Sun: String,
+    Mon: String,
+    Tue: String,
+    Wed: String,
+    Thurs: String,
+    Fri: String,
+    Sat: String,
+  },
+  phone: { type: String, required: false },
+  servicesOffered: [String],
 });
 
 const Station = mongoose.model("Station", stationSchema);

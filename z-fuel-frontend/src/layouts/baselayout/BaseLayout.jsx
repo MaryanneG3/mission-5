@@ -6,10 +6,11 @@ import styles from "./BaseLayout.module.css";
 function BaseLayout({ children, variant }) {
   return (
     <div className={styles.baseLayout}>
-      <Header />
-
       {/* hompage or default */}
-      <Navbar variant={variant} />
+      <div className={styles.navbar}>
+        <Header />
+        <Navbar variant={variant} />
+      </div>
 
       <div className={styles.mainsection}>
         <div className={styles.contentArea}>{children}</div>
