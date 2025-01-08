@@ -90,16 +90,6 @@
   flex-shrink: 0;
 }
 
-.rightSide {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; /* Rows align fully across width */
-  gap: 5px; /* Consistent spacing between rows */
-  font-size: 0.8rem;
-  color: white;
-  font-family: Roboto, sans-serif;
-}
-
 .services {
   display: flex;
   gap: 0.5rem;
