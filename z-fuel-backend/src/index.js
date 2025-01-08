@@ -2,27 +2,34 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-//db imports
-const connectDBFuelMap = require("./dbConfig/dbFuelMap"); //import connection to FuelMap DB (rhyas local)
+// DB imports
+// const connectDBFuelMap = require("./dbConfig/dbFuelMap"); // Import connection to FuelMap DB (Rhya's local)
+const connectProductsDb = require("./dbConfig/dbOrderOnline"); // Maryanne's local - products DB connection
+
+// Routes
 const stationRoutes = require("./routes/stationsRoutes");
+const productRoutes = require("./routes/productsRoutes"); // Routes for products and categories
 
 const app = express();
 
-// middleware
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-//Choose DB you want to connect to (uncooment your db and comment out all others)
-connectDBFuelMap(); //connect to FuelMapDB (for fuel map features) **rhya's db
+// Choose DB to connect to (uncomment your DB and comment out all others)
+// connectDBFuelMap(); // Connect to FuelMapDB (for fuel map features) **Rhya's DB
+connectProductsDb(); // Connect to Online Orders DB (Maryanne's DB)
 
-//initial connection
+// Initial connection route
 app.get("/", (req, res) => {
   res.send("Welcome to Z-Fuel's server!");
 });
 
-//route imports
-app.use("/api", stationRoutes); //access station routes (rhya/fuelmap)
+// Route imports
+app.use("/api", stationRoutes); // Access station routes (Rhya/FuelMap)
+app.use("/api/products", productRoutes); // Access product routes (Products and Categories)
 
+// Start the server
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
