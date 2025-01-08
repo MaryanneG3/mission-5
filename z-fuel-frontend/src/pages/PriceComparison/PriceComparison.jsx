@@ -43,7 +43,9 @@ const PriceComparison = () => {
           <h2>Compare Prices Across Stations</h2>
           {/* Pump Image */}
           <div className={styles.imageArea}>
-            <img src={pumpImage} alt="Fuel Pump" className={styles.pumpImage} style={{ maxWidth: '50%' }} />
+            <div className={styles.imageContainer}>
+              <img src={pumpImage} alt="Fuel Pump" className={styles.pumpImage} style={{ maxWidth: '50%' }} />
+            </div>
           </div>
           <div className={styles.searchContainer}>
             <input 

@@ -1,0 +1,20 @@
+.upperBanner {
+  width: 100%;
+}
+
+.imageBar {
+  width: 100%;
+  height: auto;
+}
+
+.infoBanner {
+  width: 100%;
+  height: auto;
+}
+
+.bottomBanner {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+}

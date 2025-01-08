@@ -1,3 +1,19 @@
 .mapContainer {
-  margin: 1rem;
+  height: 640px;
+  width: 682px;
+  max-width: 682px;
+}
+
+@media (max-width: 1100px) {
+  .mapContainer {
+    height: 440px; /* Reduce height for smaller screens */
+    width: 482px;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 482px) {
+  .mapContainer {
+    display: none;
+  }
 }

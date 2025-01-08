@@ -9,8 +9,6 @@
   display: flex;
   flex: 1;
   height: auto;
-  /* background-color: rgb(238, 208, 151); */
-  /* background is orange just for testing */
 }
 
 .contentArea {
@@ -18,4 +16,10 @@
   flex-direction: column;
   flex: 1;
   width: 100vw;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
 }

@@ -9,6 +9,7 @@ function ZMap() {
   const [stations, setStations] = useState([]); // stores stations data
   const [searchInput, setSearchInput] = useState("");
 
+  // ******************** //
   useEffect(() => {
     const fetchStations = async () => {
       try {
@@ -26,7 +27,7 @@ function ZMap() {
     fetchStations(); // call fetchStations to trigger the data fetch
   }, []);
 
-  //SEARCH FUNCTIONALITY 
+  //SEARCH FUNCTIONALITY
   const handleSearchInputChange = (input) => {
     setSearchInput(input); //updates searchInput state with cleaned input from search array
     console.log(searchInput);
@@ -40,8 +41,8 @@ function ZMap() {
             )
           );
         })
-      : stations; // if no input, return all stations
-      
+      : stations.slice(0, 2); // if no input, return only the first 2 stations
+
   // display results or message if no matches
   const content =
     filteredStations.length > 0 ? (
@@ -56,6 +57,7 @@ function ZMap() {
     );
   return (
     <div className={styles.container}>
+      <div className={styles.layoutContainer}>
       <div className={styles.leftContainer}>
         {/* search bar section */}
         <SearchBar
@@ -70,6 +72,8 @@ function ZMap() {
       {/* map section */}
       <div className={styles.rightContainer}>
         <MapComponent stations={stations} />
+      </div>
+
       </div>
     </div>
   );

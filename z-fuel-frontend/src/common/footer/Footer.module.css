@@ -74,3 +74,24 @@ li {
   margin-bottom: 10px;
   color: #333;
 }
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .links {
+    padding-top: 2rem;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .footerBtnContainer {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    padding: 0%;
+  }
+}
