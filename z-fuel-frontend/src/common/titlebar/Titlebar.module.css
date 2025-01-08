@@ -52,7 +52,6 @@
   color: white;
   font-size: 3em;
   position: relative;
-  z-index: 1;
   text-shadow: 20px 20px 5px rgba(0, 0, 0, 0.5); /* 2px horizontal, 2px vertical, 5px blur, black shadow with opacity - took from gpt */
 }
 
@@ -60,7 +59,6 @@
   color: white;
   font-size: 28px;
   position: relative;
-  z-index: 1;
   text-shadow: 20px 20px 5px rgba(0, 0, 0, 0.5); /* 2px horizontal, 2px vertical, 5px blur, black shadow with opacity - took from gpt */
 }
 
