@@ -36,7 +36,7 @@ function MapComponent({ stations }) {
                   position={station.coordinates}
                   onClick={() => setSelectedStation(station)}
                   icon={{
-                    url: "/images/zPurpleVector.png",
+                    url: "/images/icons/zPurpleVector.png",
                     scaledSize: new window.google.maps.Size(44, 50),
                   }}
                 />

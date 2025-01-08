@@ -2,10 +2,10 @@ import styles from "./StationCard.module.css";
 
 function StationCard({ station }) {
   const services = [
-    { name: "Restrooms", icon: "/images/greenToilet.png" },
-    { name: "Fuel", icon: "/images/gasBottleGreen.png" },
-    { name: "Coffee", icon: "/images/greenCoffeeIcon.png" },
-    { name: "ATM", icon: "/images/ATMGreen.png" },
+    { name: "Restrooms", icon: "/images/icons/greenToilet.png" },
+    { name: "Fuel", icon: "/images/icons/gasBottleGreen.png" },
+    { name: "Coffee", icon: "/images/icons/greenCoffeeIcon.png" },
+    { name: "ATM", icon: "/images/icons/ATMGreen.png" },
   ];
   return (
     // container for each station card
@@ -40,7 +40,7 @@ function StationCard({ station }) {
           <h4>Contact Store</h4>
           <div className={styles.contactInfo}>
             <img
-              src="/images/phoneIconWhite.png"
+              src="/images/icons/phoneIconWhite.png"
               alt="Phone Icon"
               className={styles.phoneIcon}
             />
