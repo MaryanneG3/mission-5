@@ -13,8 +13,8 @@ const fetchPrices = async () => {
 const PriceComparison = () => {
   const [prices, setPrices] = useState([
     { fuelType: '91', amount: 2.10 },
-    { fuelType: '95', amount: 2.50 },
-    { fuelType: 'D', amount: 1.80 },
+    { fuelType: 'x95', amount: 2.50 },
+    { fuelType: 'dieselD', amount: 1.80 },
   ]);
   const [address, setAddress] = useState('');
 

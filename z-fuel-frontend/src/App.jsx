@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import './builder-registry';
 import Homepage from "./pages/Homepage/Homepage";
 import FindFuelStation from "./pages/FindFuelStation/FindFuelStation";
 import PriceComparison from "./pages/PriceComparison/PriceComparison";
