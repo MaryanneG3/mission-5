@@ -37,7 +37,7 @@ function StationCard({ station }) {
                 />
               ))}
           </div>
-          <h4>Contact Store</h4>
+          <h4 className={styles.title}>Contact Store</h4>
           <div className={styles.contactInfo}>
             <img
               src="/images/icons/phoneIconWhite.png"
