@@ -19,11 +19,15 @@ const HeaderNavlinks = () => {
       </NavLink>
 
       <NavLink to="#cart-page" className={styles.navlink}>
-        <FontAwesomeIcon icon={faCartShopping} className={styles.icon} />
+        <img
+          src="/images/icons/shoppingCartIcon.png"
+          alt="Cart"
+          width={"15px"}
+        />
       </NavLink>
 
       <NavLink to="#search-page" className={styles.navlink}>
-        <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.icon} />
+        <img src="/images/icons/searchIcon.png" alt="Search" width={"15px"}/>
       </NavLink>
 
       {/* when mag glass icon is clicked - pop up text area for user to enter search text??? */}
