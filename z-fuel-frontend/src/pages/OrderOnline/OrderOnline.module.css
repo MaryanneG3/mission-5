@@ -201,7 +201,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 40px 10px;
+    padding: 40px 5px;
 
     /* background-color: black; */
   }
@@ -244,9 +244,9 @@
     /* background-color: pink; */
   }
 
-  .titles {
+  /* .titles {
     padding-inline: 40px;
-  }
+  } */
 
   .orderContainer {
     display: flex;
@@ -257,5 +257,22 @@
     padding: 40px 30px;
     width: 100vw;
     height: auto;
+  }
+
+  .productsContainer h3 {
+    padding-inline: 40px;
+  }
+
+  .leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    /* gap: 20px; */
+    padding-inline: 10px;
+    height: 100%;
+    width: 60%;
+
+    /* background-color: pink; */
   }
 }
