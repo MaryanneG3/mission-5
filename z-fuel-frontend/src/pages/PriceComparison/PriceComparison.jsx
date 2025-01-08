@@ -1,99 +1,66 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BaseLayout from '../../layouts/baselayout/BaseLayout';
 import styles from './PriceComparison.module.css';
-import SearchAddress from '../../components/priceComp/SearchAddress';
+import heroBackground from '/images/priceComp/moneyBanner1.png';
+import pumpImage from '/images/priceComp/pricePump.png';
+import comparisonImage from '/images/priceComp/priceCompText.png';
+
+const fetchPrices = async () => {
+  const response = await fetch('http://localhost:3000/api/fuel-prices');
+  return response.json();
+};
 
 const PriceComparison = () => {
-  const [userLocation, setUserLocation] = useState(null);
+  const [prices, setPrices] = useState([
+    { fuelType: '91', amount: 2.10 },
+    { fuelType: '95', amount: 2.50 },
+    { fuelType: 'D', amount: 1.80 },
+  ]);
+  const [address, setAddress] = useState('');
 
-  const handleAddressSelect = (location) => {
-    setUserLocation(location);
+  useEffect(() => {
+    const getPrices = async () => {
+      const data = await fetchPrices();
+      setPrices(data);
+    };
+    getPrices();
+  }, []);
+
+  const handleSearch = () => {
+    console.log('Searching for address:', address);
+    // Implement search logic here
   };
 
   return (
     <BaseLayout>
-      <nav className={styles.navigation}>
-        <div className={styles.navContainer}>
-          <img src="/images/z-logo.svg" alt="Z Energy" className={styles.logo} />
-          <div className={styles.navLinks}>
-            <button className={styles.personalBtn}>For Personal</button>
-            <div className={styles.dropdownLinks}>
-              <span>How to enjoy Z station ↓</span>
-              <span>Rewards and Promotions ↓</span>
-              <span>Location ↓</span>
-            </div>
-          </div>
-          <div className={styles.rightNav}>
-            <span>Z App</span>
-            <span>About Z</span>
-            <button className={styles.loginBtn}>Login →</button>
-          </div>
-        </div>
-      </nav>
-
-      <div className={styles.heroSection}>
-        <div className={styles.heroContent}>
-          <h1>Fuel Your Savings - Compare Prices Now!</h1>
-        </div>
+      {/* Hero Section with Background Image and Overlay Text */}
+      <div className={styles.heroSection} style={{ backgroundImage: `url(${heroBackground})` }}>
+        <img src={comparisonImage} alt="Comparison Text" className={styles.overlayText} />
       </div>
 
       <section className={styles.comparisonSection}>
         <div className={styles.contentContainer}>
-          <div className={styles.titleWithImages}>
-            <div className={styles.titleArea}>
-              <h2 className={styles.sectionTitle}>
-                Compare Prices<br />
-                Across Stations
-              </h2>
-            </div>
-            <div className={styles.imageArea}>
-              <img src="/images/fuel-pump-1.jpg" alt="" className={styles.pumpImage} />
-              <img src="/images/fuel-pump-2.jpg" alt="" className={styles.pumpImage} />
-            </div>
+          <h2>Compare Prices Across Stations</h2>
+          {/* Pump Image */}
+          <div className={styles.imageArea}>
+            <img src={pumpImage} alt="Fuel Pump" className={styles.pumpImage} style={{ maxWidth: '50%' }} />
           </div>
-          
           <div className={styles.searchContainer}>
-            <div className={styles.searchBox}>
-              <SearchAddress onAddressSelect={handleAddressSelect} placeholder="Enter your address" />
-            </div>
-            <button className={styles.searchButton}>
-              Search
-            </button>
+            <input 
+              type="text" 
+              placeholder="Enter address" 
+              value={address} 
+              onChange={(e) => setAddress(e.target.value)}
+            />
+            <button onClick={handleSearch}>Search</button>
           </div>
-
           <div className={styles.priceGrid}>
-            <div className={styles.priceCard}>
-              <div className={styles.cardHeader}>
-                <span className={styles.fuelBadge}>91</span>
-                <img src="/images/z-logo-white.png" alt="Z Energy" className={styles.cardLogo} />
+            {prices.map((price, index) => (
+              <div key={index} className={styles.priceCard}>
+                <img src={`/images/priceComp/${price.fuelType}.png`} alt={`${price.fuelType} icon`} className={styles.fuelIcon} />
+                {price.fuelType} - ${price.amount} per liter
               </div>
-              <div className={styles.priceTag}>
-                <span className={styles.price}>$297.9</span>
-                <span className={styles.unit}>per liter</span>
-              </div>
-            </div>
-
-            <div className={styles.priceCard}>
-              <div className={styles.cardHeader}>
-                <span className={styles.fuelBadge}>X95</span>
-                <img src="/images/z-logo-white.png" alt="Z Energy" className={styles.cardLogo} />
-              </div>
-              <div className={styles.priceTag}>
-                <span className={styles.price}>$316.9</span>
-                <span className={styles.unit}>per liter</span>
-              </div>
-            </div>
-
-            <div className={styles.priceCard}>
-              <div className={styles.cardHeader}>
-                <span className={styles.fuelBadge}>D</span>
-                <img src="/images/z-logo-white.png" alt="Z Energy" className={styles.cardLogo} />
-              </div>
-              <div className={styles.priceTag}>
-                <span className={styles.price}>$231.9</span>
-                <span className={styles.unit}>per liter</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
