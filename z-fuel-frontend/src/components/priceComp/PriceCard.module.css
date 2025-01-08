@@ -1,0 +1,158 @@
+.priceCard {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-height: 120px;
+  padding: 16px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.priceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(90deg, #FF6B00 0%, #FFB800 100%);
+}
+
+.orange::before {
+  background: linear-gradient(90deg, #FF6B00 0%, #FFB800 100%);
+}
+
+.blue::before {
+  background: linear-gradient(90deg, #1E1E64 0%, #2E2E94 100%);
+}
+
+.fuelInfo {
+  padding: 1.5rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.fuelType {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+
+.fuelIcon {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.stationInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stationIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin: 8px 0;
+}
+
+.stationLogo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.stationName {
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.distance {
+  font-size: 0.875rem;
+  color: #718096;
+  margin-left: auto;
+}
+
+.priceContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: auto;
+}
+
+.zLogo {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.priceValue {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #FF6B00;
+}
+
+.priceValue span {
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+.priceCard:hover {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .priceCard {
+    min-height: 250px;
+  }
+
+  .fuelIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .fuelType {
+    font-size: 1.2rem;
+  }
+
+  .price {
+    font-size: 2rem;
+  }
+}
