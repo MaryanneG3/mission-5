@@ -1,29 +1,51 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const mongoose = require('mongoose');
 
-//db imports
-const connectDBFuelMap = require("./dbConfig/dbFuelMap"); //import connection to FuelMap DB (rhyas local)
+// DB imports
+const connectDBFuelMap = require("./dbConfig/dbFuelMap");
 const stationRoutes = require("./routes/stationsRoutes");
+const fuelPriceRoutes = require("./routes/fuelPriceRoutes");
 
 const app = express();
 
-// middleware
-app.use(cors());
+// Middleware
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  credentials: true
+}));
 app.use(bodyParser.json());
+app.use(express.json());
 
-//Choose DB you want to connect to (uncooment your db and comment out all others)
-connectDBFuelMap(); //connect to FuelMapDB (for fuel map features) **rhya's db
+// Connect to databases
+connectDBFuelMap(); // connect to FuelMapDB (for fuel map features)
 
-//initial connection
+// MongoDB connection for fuel prices
+mongoose.connect('mongodb://localhost:27017/zfuel', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('MongoDB connection error:', err));
+
+// Initial connection
 app.get("/", (req, res) => {
   res.send("Welcome to Z-Fuel's server!");
 });
 
-//route imports
-app.use("/api", stationRoutes); //access station routes (rhya/fuelmap)
+// Routes
+app.use("/api", stationRoutes); // access station routes (rhya/fuelmap)
+app.use("/api", fuelPriceRoutes); // access fuel price routes
 
-const PORT = process.env.PORT || 5001;
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong!' });
+});
+
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
