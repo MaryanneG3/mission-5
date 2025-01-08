@@ -14,7 +14,9 @@
 
 .bottomBanner {
   width: 100%;
+  /* background-color: aqua; */
 }
 
 @media (max-width: 768px) {
+
 }
