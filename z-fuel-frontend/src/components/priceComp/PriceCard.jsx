@@ -1,25 +1,25 @@
 import React from 'react';
-import styles from './PriceComparison.module.css';
+import styles from './PriceCard.module.css';
 
-export const PriceCard = ({ fuelType, price, icon }) => {
+const PriceCard = ({ fuelType, price, variant = "orange" }) => {
   return (
-    <div className={styles.priceCard}>
-      <button className={styles.fuelTypeBtn}>
-        <img
-          loading="lazy"
-          src={`/images/${icon}`}
-          className={styles.fuelIcon}
-          alt=""
+    <div className={`${styles.priceCard} ${styles[variant]}`}>
+      <div className={styles.fuelType}>
+        <img 
+          src={`/images/priceComp/${fuelType === 'X95' ? 'x95' : fuelType.toLowerCase()}.png`}
+          className={styles.icon} 
+          alt={`${fuelType} fuel`} 
         />
         <span>{fuelType}</span>
-      </button>
-      <img
-        loading="lazy"
-        src="/images/station-logo.png"
-        className={styles.stationLogo}
-        alt="Station logo"
+      </div>
+      <img 
+        src="/images/priceComp/logocard.png"
+        className={styles.stationIcon} 
+        alt="Z Station" 
       />
-      <div className={styles.priceTag}>${price} per liter</div>
+      <div className={styles.price}>${price} per liter</div>
     </div>
   );
 };
+
+export default PriceCard;
