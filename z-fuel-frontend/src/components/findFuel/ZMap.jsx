@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import styles from "./ZMap.module.css";
-
 import MapComponent from "./MapComponent";
 import StationCard from "./StationCard";
 import SearchBar from "./searchBar";
@@ -41,7 +40,7 @@ function ZMap() {
             )
           );
         })
-      : stations.slice(0, 2); // if no input, return only the first 2 stations
+      : stations.slice(0, 2); // if no input, return only return 2
 
   // display results or message if no matches
   const content =
