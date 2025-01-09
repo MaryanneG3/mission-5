@@ -13,8 +13,8 @@ const fetchPrices = async () => {
 const PriceComparison = () => {
   const [prices, setPrices] = useState([
     { fuelType: '91', amount: 2.10 },
-    { fuelType: 'x95', amount: 2.50 },
-    { fuelType: 'dieselD', amount: 1.80 },
+    { fuelType: 'X 95', amount: 2.50 },
+    { fuelType: 'Diesel', amount: 1.80 },
   ]);
   const [address, setAddress] = useState('');
 
@@ -47,20 +47,31 @@ const PriceComparison = () => {
               <img src={pumpImage} alt="Fuel Pump" className={styles.pumpImage} style={{ maxWidth: '50%' }} />
             </div>
           </div>
-          <div className={styles.searchContainer}>
-            <input 
-              type="text" 
-              placeholder="Enter address" 
-              value={address} 
-              onChange={(e) => setAddress(e.target.value)}
-            />
-            <button onClick={handleSearch}>Search</button>
-          </div>
-          <div className={styles.priceGrid}>
-            {prices.map((price, index) => (
-              <div key={index} className={styles.priceCard}>
-                <img src={`/images/priceComp/${price.fuelType}.png`} alt={`${price.fuelType} icon`} className={styles.fuelIcon} />
-                {price.fuelType} - ${price.amount} per liter
+          <div className={styles.priceGridContainer}>
+            {['location1', 'location2'].map((location, locIndex) => (
+              <div key={location} className={styles.locationSection}>
+                <div className={styles.searchBarContainer}>
+                  <input type="text" placeholder="Enter address" value={address} onChange={(e) => setAddress(e.target.value)} />
+                  <button onClick={handleSearch}>Search</button>
+                </div>
+                <div className={styles.priceGrid}>
+                  {['91', 'x95', 'diesel'].map((fuelType) => (
+                    <div key={fuelType} className={styles.priceCard}>
+                      <img src={`/images/priceComp/${fuelType === 'diesel' ? 'dieselD' : fuelType}.png`} alt={`${fuelType} icon`} className={styles.fuelIcon} />
+                      <img src="/images/priceComp/logocard.png" alt="Logo Card" className={styles.logoCard} />
+                      <div className={styles.fuelFrameContainer}>
+                        <img 
+                          src={`/images/priceComp/${fuelType === '91' ? '91Frame' : fuelType === 'x95' ? '95Frame' : 'dieselFrame'}.png`} 
+                          alt={`${fuelType} frame`} 
+                          className={styles.fuelFrame} 
+                        />
+                        <div className={styles.priceText}>
+                          ${prices.find(price => price.fuelType === fuelType)?.amount} per litre
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
