@@ -57,6 +57,10 @@ exports.addFuelPrice = async (req, res) => {
   try {
     const { stationName, address, lat, lng, prices } = req.body;
 
+    if (!prices || !Array.isArray(prices)) {
+      return res.status(400).json({ message: 'Prices must be an array.' });
+    }
+
     const station = await FuelPrice.findOneAndUpdate(
       { stationName },
       {

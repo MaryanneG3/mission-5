@@ -23,7 +23,7 @@ app.use(express.json());
 connectDBFuelMap(); // connect to FuelMapDB (for fuel map features)
 
 // MongoDB connection for fuel prices
-mongoose.connect('mongodb://localhost:27017/zfuel', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -49,4 +49,3 @@ const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
-
