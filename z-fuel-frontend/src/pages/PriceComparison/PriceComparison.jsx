@@ -18,8 +18,9 @@ const fetchPrices = async (address) => {
 
 const fetchCoordinates = async (address) => {
   try {
-    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`);
+    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`);
     const data = await response.json();
+    console.log('Geocoding API response:', data);
     if (!data.results || data.results.length === 0) throw new Error('No results found.');
     const { lat, lng } = data.results[0].geometry.location;
     return { lat, lng };
@@ -31,12 +32,15 @@ const fetchCoordinates = async (address) => {
 
 const fetchNearbyPrices = async (lat, lng) => {
   try {
-    const response = await fetch(`/api/fuel-prices/nearby`, {
+    const response = await fetch(`http://localhost:5001/api/fuel-prices/nearby`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ latitude: lat, longitude: lng })
     });
-    if (!response.ok) throw new Error('Failed to fetch nearby prices.');
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to fetch nearby prices: ${errorText}`);
+    }
     return await response.json();
   } catch (error) {
     console.error('Error fetching nearby prices:', error);
@@ -82,7 +86,7 @@ const PriceComparison = () => {
 
   const displayPrices = (prices) => {
     return ['91', 'x95', 'diesel'].map((fuelType) => {
-      const price = prices.find(p => p.fuelType.toLowerCase() === fuelType);
+      const price = prices.find(p => p && p.fuelType && p.fuelType.toLowerCase() === fuelType) || { price: 2.00 };
       return (
         <div key={fuelType} className={styles.priceCard}>
           <img src={`/images/priceComp/${fuelType === 'diesel' ? 'dieselD' : fuelType}.png`} alt={`${fuelType} icon`} className={styles.fuelIcon} />
@@ -93,7 +97,7 @@ const PriceComparison = () => {
               alt={`${fuelType} frame`} 
               className={styles.fuelFrame} 
             />
-            <div className={styles.priceText}>{price ? `$${price.price} per litre` : 'Price not available'}</div>
+            <div className={styles.priceText}>{price ? `$${price.price} per litre` : `$2.00 per litre`}</div>
           </div>
         </div>
       );
@@ -109,13 +113,13 @@ const PriceComparison = () => {
 
       <section className={styles.comparisonSection}>
         <div className={styles.contentContainer}>
-          <h2>Compare Prices Across Stations</h2>
           {/* Pump Image */}
           <div className={styles.imageArea}>
             <div className={styles.imageContainer}>
-              <img src={pumpImage} alt="Fuel Pump" className={styles.pumpImage} style={{ maxWidth: '50%' }} />
+              <img src={pumpImage} alt="Fuel Pump" className={styles.pumpImage} style={{ width: '100%' }} />
             </div>
           </div>
+          <h2>Compare Prices Across Stations</h2>
           <div className={styles.priceGridContainer}>
             {['location1', 'location2'].map((location, locIndex) => (
               <div key={location} className={styles.locationSection}>

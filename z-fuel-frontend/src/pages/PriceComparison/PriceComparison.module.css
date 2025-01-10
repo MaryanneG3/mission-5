@@ -17,7 +17,6 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.15;
-  background-image: url('/images/priceComp/doodleBackground.png');
   background-size: cover;
   transform: scale(1.2);
 }
@@ -27,16 +26,26 @@
   padding: 2rem 0;
 }
 
+.comparisonSection h2 {
+  position: static;
+  margin-top: 60px;
+  font-size: 1.5rem;
+  margin-left: 60px;
+  color: #1E196B;
+}
+
 .contentContainer {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 .locationSection {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 40px;
 }
 
 .searchBarContainer {
@@ -44,6 +53,7 @@
   margin-bottom: 40px;
   display: flex;
   align-items: center;
+  margin-left: 60px;
 }
 
 .searchBarContainer input {
@@ -98,6 +108,12 @@
   margin: 2px 0 0 6px;
   border-radius: 13px;
   object-fit: contain;
+}
+
+.imageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .imageArea {
