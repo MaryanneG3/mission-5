@@ -39,7 +39,7 @@ const HeaderNavlinks = () => {
           <p>About Z</p>
         </NavLink>
 
-        <NavLink to="#cart-page" className={styles.navlink}>
+        <NavLink to="/confirm-order" className={styles.navlink}>
           <FontAwesomeIcon icon={faCartShopping} className={styles.icon} />
         </NavLink>
 

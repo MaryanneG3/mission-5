@@ -7,6 +7,7 @@ import PriceComparison from "./pages/PriceComparison/PriceComparison";
 import OrderOnlineLandingPage from "./pages/OrderOnline/OrderOnlineLandingPage";
 import ShareTank from "./pages/ShareTank/ShareTank";
 import CreateAccount from "./pages/CreateAccount/CreateAccount";
+import ConfirmOrder from "./pages/ConfirmOrder/ConfirmOrder";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/order-online-landing-page" element={<OrderOnlineLandingPage />} />
       <Route path="/share-tank" element={<ShareTank />} />
       <Route path="/create-account" element={<CreateAccount />} />
+      <Route path="/confirm-order" element={<ConfirmOrder />} />
     </Routes>
   );
 }
