@@ -3,16 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
-// to do: create 3 variants of titlebar
-
-// 1. default - h1 title with background color and image
-//            *** create variants for images used in background for default titlebars based on route
-
-// 2. findStation - h3 title with find a station button below it on left section
-
-// 3. shareTank - h2 title with links to apple store and google play store on left section
-//              - image on right section
-
 function Titlebar({ variant, backgroundImage, title }) {
   let backgroundClass;
 
