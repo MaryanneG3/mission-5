@@ -9,35 +9,24 @@ const mongoose = require("mongoose");
 const connectProductsDb = require("./dbConfig/dbOrderOnline"); // Maryanne's local - products DB connection
 
 // Routes
-const productRoutes = require("./routes/productsRoutes"); // Routes for products and categories
-const connectDBFuelMap = require("./dbConfig/dbFuelMap");
-const stationRoutes = require("./routes/stationsRoutes");
-const fuelPriceRoutes = require("./routes/fuelPriceRoutes");
+const productRoutes = require("./routes/productsRoutes"); // Routes for products and categories - Maryanne
+const stationRoutes = require("./routes/stationsRoutes"); // Routes to stations - Rhya
+const fuelPriceRoutes = require("./routes/fuelPrices"); // Routes to fuel prices - Caitlin
 
 const app = express();
 
 // Middleware
 app.use(cors());
 
-// app.use(
-//   cors({
-//     origin: process.env.CORS_ORIGIN || "http://localhost:3000",
-//     credentials: true,
-//   })
-// );
 app.use(bodyParser.json());
 app.use(express.json());
 
-// Choose DB to connect to (uncomment your DB and comment out all others)
+// Choose DB to connect to (uncomment your DB and comment out all others) <------------------------------------------ IMPORTANT!
 
 // connectDBFuelMap(); // Connect to FuelMapDB (for fuel map features) **Rhya's DB
 connectProductsDb(); // Connect to Online Orders DB (Maryanne's DB)
 
-// Initial connection route
-// Connect to databases
-// connectDBFuelMap(); // connect to FuelMapDB (for fuel map features)
-
-// MongoDB connection for fuel prices
+// MongoDB connection for fuel prices - Caitlin's DB
 // mongoose.connect('mongodb://localhost:27017/zfuel', {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true

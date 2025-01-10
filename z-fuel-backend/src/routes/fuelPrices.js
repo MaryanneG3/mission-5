@@ -28,6 +28,11 @@ router.get('/api/fuel-prices', async (req, res) => {
 router.post('/api/fuel-prices/nearby', async (req, res) => {
   try {
     const { latitude, longitude, radius = 10 } = req.body;
+    if (!latitude || !longitude) {
+      return res.status(400).json({ message: 'Latitude and longitude are required.' });
+    }
+
+    console.log(`Received request for nearby prices with lat: ${latitude}, lng: ${longitude}, radius: ${radius}`);
 
     // Convert radius from km to meters
     const radiusInMeters = radius * 1000;
@@ -43,6 +48,10 @@ router.post('/api/fuel-prices/nearby', async (req, res) => {
         }
       }
     });
+
+    if (nearbyStations.length === 0) {
+      console.log('No nearby stations found.');
+    }
 
     // Calculate distances and format response
     const formattedPrices = nearbyStations.flatMap(station => {
@@ -66,6 +75,7 @@ router.post('/api/fuel-prices/nearby', async (req, res) => {
 
     res.json(formattedPrices);
   } catch (error) {
+    console.error('Error fetching nearby prices:', error);
     res.status(500).json({ message: error.message });
   }
 });
