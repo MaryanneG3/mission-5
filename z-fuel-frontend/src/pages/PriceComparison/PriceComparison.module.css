@@ -1,9 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .heroSection {
-  @apply bg-gradient-to-r from-orange-500 to-yellow-400 flex items-center justify-center relative overflow-hidden;
+  background: linear-gradient(to right, #f97316, #facc15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
   height: 25vh;
   width: 100%;
   background-size: cover;
@@ -11,40 +12,150 @@
 
 .heroSection::before {
   content: '';
-  @apply absolute inset-0 bg-center bg-no-repeat opacity-15;
-  background-image: url('/images/priceComp/doodleBackground.png'); /* Ensure this image is correct */
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
   background-size: cover;
   transform: scale(1.2);
 }
 
 .comparisonSection {
-  @apply bg-orange-500 py-8;
+  background-color: transparent;
+  padding: 2rem 0;
+}
+
+.comparisonSection h2 {
+  position: static;
+  margin-top: 60px;
+  font-size: 1.5rem;
+  margin-left: 60px;
+  color: #1E196B;
 }
 
 .contentContainer {
-  @apply max-w-screen-lg mx-auto p-8;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
-.searchContainer {
-  @apply flex gap-2 my-8 items-center justify-center;
+.locationSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
 }
 
-.searchBox {
-  @apply flex-1 max-w-md border border-gray-300 rounded-lg p-2;
+.searchBarContainer {
+  align-self: flex-start;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
 }
 
-.searchButton {
-  @apply bg-blue-500 text-white py-2 px-4 rounded font-medium text-sm;
+.searchBarContainer input {
+  width: 330px;
+  height: 42px;
+  border-radius: 10px;
+  border: none;
+  padding: 0 10px;
+  background: url('/images/priceComp/enterbox.png') no-repeat center;
+  background-size: cover;
+  box-shadow: none;
+}
+
+.searchBarContainer button {
+  width: 90px;
+  height: 19px;
+  margin-left: 10px;
+  background: url('/images/priceComp/confAddress.png') no-repeat center;
+  background-size: cover;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: none;
 }
 
 .priceGrid {
-  @apply grid grid-cols-3 gap-6; /* Adjust according to your layout needs */
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 .priceCard {
-  @apply bg-white p-4 rounded-lg shadow-lg flex flex-col items-center;
+  width: 209px;
+  height: 209px;
+  background-image: url('/images/priceComp/fuelTypeBGGradient.png');
+  background-size: cover;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 20px;
 }
 
 .fuelIcon {
-  @apply w-20 h-20 object-contain;
+  width: 43px;
+  height: 18px;
+  margin: 2px 0 0 6px;
+  border-radius: 13px;
+  object-fit: contain;
+}
+
+.imageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.imageArea {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.pumpImage {
+  width: 100%;
+  height: auto;
+}
+
+.overlayText {
+  width: 70%;
+}
+
+.logoCard {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.fuelFrameContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.fuelFrame {
+  display: block;
+  margin: 0 auto;
+}
+
+.priceText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

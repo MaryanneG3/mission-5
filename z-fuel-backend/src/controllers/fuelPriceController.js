@@ -3,46 +3,44 @@ const FuelPrice = require('../models/FuelPrice');
 // Get all fuel prices
 exports.getFuelPrices = async (req, res) => {
   try {
-    const { lat, lng, radius = 10 } = req.query; // radius in km
+    const defaultLocation = { lat: -37.0600, lng: 174.9434 }; // Papakura, Auckland
+    const { lat = defaultLocation.lat, lng = defaultLocation.lng, radius = 10 } = req.query; // radius in km
 
-    let query = {};
-    
-    if (lat && lng) {
-      query.location = {
-        $near: {
-          $geometry: {
-            type: 'Point',
-            coordinates: [parseFloat(lng), parseFloat(lat)]
-          },
-          $maxDistance: radius * 1000 // Convert km to meters
-        }
-      };
-    }
+    let query = { 'prices.fuelType': { $in: ['91', '95', 'diesel'] } };
 
-    const stations = await FuelPrice.find(query);
-    
+    query.location = {
+      $near: {
+        $geometry: {
+          type: 'Point',
+          coordinates: [parseFloat(lng), parseFloat(lat)]
+        },
+        $maxDistance: radius * 1000 // Convert km to meters
+      }
+    };
+
+    const stations = await FuelPrice.find(query).limit(2); // Get the closest and the next closest station
+
     // Format response
-    const formattedPrices = stations.flatMap(station => {
-      const distance = lat && lng ? 
-        calculateDistance(
-          parseFloat(lat),
-          parseFloat(lng),
-          station.location.coordinates[1],
-          station.location.coordinates[0]
-        ) : null;
+    const formattedPrices = stations.map((station, index) => {
+      const distance = calculateDistance(
+        parseFloat(lat),
+        parseFloat(lng),
+        station.location.coordinates[1],
+        station.location.coordinates[0]
+      );
 
-      return station.prices.map(price => ({
+      return {
         stationName: station.stationName,
         address: station.address,
-        fuelType: price.fuelType,
-        price: price.price,
-        lastUpdated: price.lastUpdated,
-        distance: distance ? parseFloat(distance.toFixed(1)) : null,
+        prices: station.prices.filter(price => ['91', '95', 'diesel'].includes(price.fuelType)),
+        lastUpdated: station.prices[0]?.lastUpdated,
+        distance: parseFloat(distance.toFixed(1)),
         location: {
           lat: station.location.coordinates[1],
           lng: station.location.coordinates[0]
-        }
-      }));
+        },
+        isNextClosest: index === 1 // Mark the second station as the next closest
+      };
     });
 
     res.json(formattedPrices);
@@ -56,6 +54,10 @@ exports.getFuelPrices = async (req, res) => {
 exports.addFuelPrice = async (req, res) => {
   try {
     const { stationName, address, lat, lng, prices } = req.body;
+
+    if (!prices || !Array.isArray(prices)) {
+      return res.status(400).json({ message: 'Prices must be an array.' });
+    }
 
     const station = await FuelPrice.findOneAndUpdate(
       { stationName },
