@@ -22,7 +22,7 @@ function MapComponent({ stations }) {
       <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
         <div
           className={styles.mapContainer}
-          style={{ height: "550px", width: "632px" }}
+        
         >
           <Map
             defaultZoom={12}
@@ -36,7 +36,7 @@ function MapComponent({ stations }) {
                   position={station.coordinates}
                   onClick={() => setSelectedStation(station)}
                   icon={{
-                    url: "/images/zPurpleVector.png",
+                    url: "/images/icons/zPurpleVector.png",
                     scaledSize: new window.google.maps.Size(44, 50),
                   }}
                 />

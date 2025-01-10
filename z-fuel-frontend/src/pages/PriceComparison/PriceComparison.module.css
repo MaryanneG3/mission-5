@@ -1,0 +1,161 @@
+.heroSection {
+  background: linear-gradient(to right, #f97316, #facc15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  height: 25vh;
+  width: 100%;
+  background-size: cover;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  background-size: cover;
+  transform: scale(1.2);
+}
+
+.comparisonSection {
+  background-color: transparent;
+  padding: 2rem 0;
+}
+
+.comparisonSection h2 {
+  position: static;
+  margin-top: 60px;
+  font-size: 1.5rem;
+  margin-left: 60px;
+  color: #1E196B;
+}
+
+.contentContainer {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.locationSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.searchBarContainer {
+  align-self: flex-start;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
+}
+
+.searchBarContainer input {
+  width: 330px;
+  height: 42px;
+  border-radius: 10px;
+  border: none;
+  padding: 0 10px;
+  background: url('/images/priceComp/enterbox.png') no-repeat center;
+  background-size: cover;
+  box-shadow: none;
+}
+
+.searchBarContainer button {
+  width: 90px;
+  height: 19px;
+  margin-left: 10px;
+  background: url('/images/priceComp/confAddress.png') no-repeat center;
+  background-size: cover;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.priceGrid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.priceCard {
+  width: 209px;
+  height: 209px;
+  background-image: url('/images/priceComp/fuelTypeBGGradient.png');
+  background-size: cover;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 20px;
+}
+
+.fuelIcon {
+  width: 43px;
+  height: 18px;
+  margin: 2px 0 0 6px;
+  border-radius: 13px;
+  object-fit: contain;
+}
+
+.imageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.imageArea {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.pumpImage {
+  width: 100%;
+  height: auto;
+}
+
+.overlayText {
+  width: 70%;
+}
+
+.logoCard {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.fuelFrameContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.fuelFrame {
+  display: block;
+  margin: 0 auto;
+}
+
+.priceText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

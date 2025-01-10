@@ -12,3 +12,87 @@
   width: 100%;
   object-fit: cover;
 }
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 100px;
+  margin-block: 10px;
+  padding: 60px 10px;
+  /* height: 80%; */
+  width: 100vw;
+  /* background-color: pink; */
+}
+
+.ContentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding: 30px; */
+  height: 200px;
+  width: 100%;
+
+  /* background-color: blueviolet; */
+}
+
+.ContentContainerFlipped {
+  flex-direction: row-reverse;
+}
+
+.serviceDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 10px;
+
+  /* background-color: yellowgreen; */
+}
+
+.serviceDetailsContainerFlipped {
+  flex-direction: row-reverse;
+}
+
+.serviceDetailsContainerFlipped .serviceDetails {
+  align-items: end;
+  text-align: right;
+}
+
+.serviceDetails {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
+  color: #1e196b;
+  font-weight: 500;
+}
+
+.serviceDetails .serviceBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  width: 160px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f36f21;
+  color: white;
+  text-decoration: none;
+}
+
+.serviceImageContainer {
+  width: 350px;
+  display: flex;
+  object-fit: contain;
+  align-items: center;
+  border-radius: 30px;
+  /* background-color: brown; */
+}
+
+.serviceImg {
+  width: 100%;
+  height: 100%;
+}

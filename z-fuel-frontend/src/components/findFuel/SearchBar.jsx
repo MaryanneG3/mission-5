@@ -7,19 +7,18 @@ function SearchBar({ onSearchChange }) {
   const handleSearchChange = (e) => {
     const value = e.target.value; //gets current inpiut value
     const cleanedValue = value
-      .replace(/[^\w\s]/gi, "") // step 1: remove punctuation
+      .replace(/[^\w\s]/gi, "") // step 1: remove punctuation with regex expresssion
       .toLowerCase() //step 2: change all to lowercase letters
       .split(" ") //step 4: split by space
       .filter((word) => word.trim() !== ""); // step 3: remove double spaces
 
     setUserInput(value); //updates user input for search as the user types in their location
     onSearchChange(cleanedValue); //call prop funcition to pass the input to zMao file
-    console.log(cleanedValue);
   };
   return (
     <div className={styles.searchContainer}>
       <div className={styles.icon}>
-        <img src="/images/searchIcon.png" alt="Search" />
+        <img src="/images/icons/searchIcon.png" alt="Search" />
       </div>
       <input
         type="text"
