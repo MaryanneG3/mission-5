@@ -22,3 +22,10 @@
   color: white;
   margin-top: auto;
 }
+
+/* For screens <= 950px, hide the links by default */
+@media (max-width: 950px) {
+  .navbarContainer {
+    z-index: 0;
+  }
+}

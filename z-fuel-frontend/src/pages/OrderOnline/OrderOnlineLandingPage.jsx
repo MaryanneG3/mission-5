@@ -12,7 +12,7 @@ function OrderOnlineLandingPage() {
     const fetchAllProducts = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5001/api/products/all-products"
+          "http://localhost:5002/api/products/all-products"
         );
         const data = await response.json();
         setProducts(data);
@@ -24,7 +24,7 @@ function OrderOnlineLandingPage() {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5001/api/products/categories"
+          "http://localhost:5002/api/products/categories"
         );
         const data = await response.json();
         setCategories(data);

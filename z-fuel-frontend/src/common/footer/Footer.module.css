@@ -75,23 +75,27 @@ li {
   color: #333;
 }
 
-@media (max-width: 768px) {
-  .footer {
-    flex-direction: column;
+/* For screens <= 950px, hide the links by default */
+@media (max-width: 950px) {
+  .logoImage {
+    display: none;
   }
 
   .links {
-    padding-top: 2rem;
+    display: flex;
     flex-direction: column;
-    width: 100%;
-  }
+    justify-content: space-evenly;
+    align-items: flex-start;
 
+    gap: 30px;
+  }
+}
+
+/* For screens <= 950px, hide the links by default */
+@media (max-width: 350px) {
   .footerBtnContainer {
     display: flex;
-    justify-content: left;
-    align-items: center;
-    margin-top: 2rem;
-    margin-left: 3rem;
-    padding: 0%;
+    justify-content: center;
+    /* align-items: right; */
   }
 }
