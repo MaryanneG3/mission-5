@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-// seed data for stations (rhyas data)
+// seed data for stations (rhyas data) //
 const stations = [
   {
     _id: mongoose.Types.ObjectId("67734775db3bdb7462088c32"),
