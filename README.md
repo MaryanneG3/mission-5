@@ -55,6 +55,13 @@ Z Energy is a leading New Zealand fuel distributor, providing high-quality fuel 
      npm install
      ```
 
+### Frontend env file
+1. **ENV template, file should look like this:** <br/>
+VITE_GOOGLE_MAPS_API_KEY=your-api-key<br/>
+VITE_MAP_ID=your-map-id
+
+2. **You will need to create a Google Maps API key to see the functionality on the map page**
+
 ### Running the Application
 
 1. **Start the backend server**:
@@ -78,7 +85,7 @@ Z Energy is a leading New Zealand fuel distributor, providing high-quality fuel 
 
 - **Developer 1**: Maryanne Galo (https://github.com/MaryanneG3)
 Homepage, Order Online
-- **Developer 2**: Rhya Johns (https://github.com/rhyaj1)
+- **Developer 2**: Rhya Johns (https://github.com/rhyaJ)
 Find Fuel Station, Share Tank
 - **Developer 3**: Caitlin Sanderson (https://github.com/caitlincode)
 Price Comparison
