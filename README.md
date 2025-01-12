@@ -26,11 +26,41 @@ Z Energy is a leading New Zealand fuel distributor, providing high-quality fuel 
 - **Pages**: Contains the main pages like Price Comparison, Station Locator, and Order Online.
 - **Layouts**: Defines the structure of the application.
 - **Assets**: Stores images and other static resources.
+# Z Energy Station Locator and Fuel Price Comparison
+
+## Overview
+
+Z Energy is a leading New Zealand fuel distributor, providing high-quality fuel and convenience services. This project aims to redesign the Z Energy station locator and fuel price information pages to enhance user experience, addressing issues faced by users like Alex, a road trip enthusiast. The application allows users to efficiently locate gas stations, filter services, compare fuel prices across different locations, and order products online.
+
+## Features
+
+- **Station Locator**: Easily find gas stations based on specific criteria such as service offerings.
+- **Fuel Price Comparison**: View and compare fuel prices at different stations on a map.
+- **Order Online**: Conveniently order products from Z Energy stations directly through the app.
+- **Responsive Design**: Optimized for mobile devices to ensure easy navigation and selection without zooming.
+
+## File Structure
+
+### Backend (`z-fuel-backend`)
+
+- **Controllers**: Handles the business logic and API requests.
+- **Models**: Defines the database schema using Mongoose.
+- **Routes**: Manages the API endpoints for station and price data.
+- **Scripts**: Contains utility scripts, including data seeding.
+
+### Frontend (`z-fuel-frontend`)
+
+- **Components**: Reusable UI elements for building the interface.
+- **Pages**: Contains the main pages like Price Comparison, Station Locator, and Order Online.
+- **Layouts**: Defines the structure of the application.
+- **Assets**: Stores images and other static resources.
 
 ## Getting Started
 
 ### Prerequisites
 
+- **Node.js**: Ensure you have Node.js installed.
+- **MongoDB**: A running instance of MongoDB is required for data storage.
 - **Node.js**: Ensure you have Node.js installed.
 - **MongoDB**: A running instance of MongoDB is required for data storage.
 

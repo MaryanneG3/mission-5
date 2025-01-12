@@ -1,13 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-// Choose DB to connect to (uncomment your DB and comment out all others)
 // DB imports
-const connectDBFuelMap = require("./dbConfig/dbFuelMap"); // Import connection to FuelMap DB (Rhya's local)
-// const connectProductsDb = require("./dbConfig/dbOrderOnline"); // Maryanne's local - products DB connection
+// const connectDBFuelMap = require("./dbConfig/dbFuelMap"); // Import connection to FuelMap DB (Rhya's local)
+const connectProductsDb = require("./dbConfig/dbOrderOnline"); // Maryanne's local - products DB connection
 
 // Routes
 const productRoutes = require("./routes/productsRoutes"); // Routes for products and categories
@@ -51,7 +51,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });

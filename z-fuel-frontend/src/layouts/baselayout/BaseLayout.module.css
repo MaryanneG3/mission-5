@@ -17,11 +17,3 @@
   flex: 1;
   width: 100vw;
 }
-
-@media (max-width: 768px) {
-  .navbar {
-    display: none;
-    
-
-  }
-}
