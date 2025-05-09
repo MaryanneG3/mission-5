@@ -1,0 +1,93 @@
+# Z-Fuel Backend – Order Online Service
+
+This is the backend service for Z-Fuel's "Order Online" feature, allowing users to fetch categories and product data via API. The service connects to MongoDB and is containerized using Docker.
+
+## 🚀 Getting Started (Docker Only on Maryanne's Branch : mary)
+
+> ⚠️ This setup only works on **Maryanne's branch** where Docker support and environment configuration have been implemented.
+
+### 📁 Prerequisites
+
+- Docker installed on your machine.
+- Git installed to clone the repository.
+- `.env` file (see below for setup).
+
+---
+
+### 🛠 Clone the Repository and Switch to Branch
+
+```bash
+git clone https://github.com/MaryanneG3/mission-5.git
+cd z-fuel-backend
+git switch mary
+```
+
+---
+
+### ⚙️ Environment Variables
+
+Create a `.env` file in the root of the backend folder:
+
+<!-- to do: update db connection info -->
+
+```env
+PORT=5002
+DB=products
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/zfuel
+NODE_ENV=development
+```
+
+> Replace `<username>` and `<password>` with your actual MongoDB Atlas credentials.
+
+---
+
+### 🐳 Run the App Using Docker
+
+```bash
+docker build -t zfuel-order-online-backend .
+docker run -p 5002:5002 --env-file .env zfuel-order-online-backend
+```
+
+---
+
+### ✅ API Endpoints
+
+#### Get unique categories
+
+```
+GET /api/products/categories
+```
+
+#### Get all products
+
+```
+GET /api/products/all-products
+```
+
+---
+
+### 🧪 Local Development Tip (Optional)
+
+If you'd rather not use Docker, after cloning you can run the app manually:
+
+```bash
+cd z-fuel-backend
+git switch mary
+npm install
+npm run dev
+```
+
+---
+
+### 🧹 Cleanup Docker Resources
+
+```bash
+docker ps        # Get container ID
+docker stop <id> && docker rm <id>
+```
+
+---
+
+### 👩‍💻 Maintained by
+
+Maryanne Galo – Full Stack Developer, Z-Fuel Project - Mission Ready
