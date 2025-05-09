@@ -7,6 +7,8 @@ function OrderOnlineLandingPage() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -14,10 +16,16 @@ function OrderOnlineLandingPage() {
         const response = await fetch(
           "http://localhost:5002/api/products/all-products"
         );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
         setProducts(data);
       } catch (error) {
         console.error("Error fetching products: ", error);
+        setError("Failed to load products. Please try again later.");
       }
     };
 
@@ -26,10 +34,27 @@ function OrderOnlineLandingPage() {
         const response = await fetch(
           "http://localhost:5002/api/products/categories"
         );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
-        setCategories(data);
+        console.log("Categories: ", data);
+
+        // Ensure data is an array before setting state
+        if (Array.isArray(data)) {
+          setCategories(data);
+        } else if (data && typeof data === "object" && data.error) {
+          throw new Error(data.error);
+        } else {
+          throw new Error("Invalid categories data format");
+        }
       } catch (error) {
         console.error("Error fetching categories: ", error);
+        setError("Failed to load categories. Please try again later.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -37,14 +62,45 @@ function OrderOnlineLandingPage() {
     fetchCategories();
   }, []);
 
-  let filteredProducts = [];
+  let filteredProducts =
+    selectedCategory !== null
+      ? products.filter((product) => product.category === selectedCategory)
+      : [];
 
-  if (selectedCategory !== null) {
-    filteredProducts = products.filter(
-      (product) => product.category === selectedCategory
+  if (loading) {
+    return (
+      <BaseLayout variant="default">
+        <Titlebar
+          variant="default"
+          backgroundImage="onlineOrder"
+          title="Crave it. Order it. Enjoy it."
+        />
+        <div className={styles.loadingContainer}>
+          <p>Loading menu options...</p>
+        </div>
+      </BaseLayout>
     );
-  } else {
-    filteredProducts = [];
+  }
+
+  if (error) {
+    return (
+      <BaseLayout variant="default">
+        <Titlebar
+          variant="default"
+          backgroundImage="onlineOrder"
+          title="Crave it. Order it. Enjoy it."
+        />
+        <div className={styles.errorContainer}>
+          <p>{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className={styles.findStationBtn}
+          >
+            Try Again
+          </button>
+        </div>
+      </BaseLayout>
+    );
   }
 
   return (
@@ -64,11 +120,11 @@ function OrderOnlineLandingPage() {
               and snacks, perfect for busy families and people on the go.
             </p>
             <p>
-              Whether you’re grabbing breakfast, a quick lunch, or a treat for
+              Whether you're grabbing breakfast, a quick lunch, or a treat for
               the road, our convenient, high-quality options ensure you stay
               energized and satisfied wherever your journey takes you.
             </p>
-            <p>Stop in today and enjoy food that’s ready when you are!</p>
+            <p>Stop in today and enjoy food that's ready when you are!</p>
           </blockquote>
           <button className={styles.findStationBtn}>
             Find your nearest Z station
@@ -77,7 +133,8 @@ function OrderOnlineLandingPage() {
 
         <div className={styles.rightSection}>
           <img
-            src="../../../public/images/orderOnline/ZWebsite Food Image.png"
+            src="/images/orderOnline/ZWebsite Food Image.png"
+            alt="Food selection"
             className={styles.orderOnlineDefaultImg}
           />
         </div>
@@ -87,28 +144,35 @@ function OrderOnlineLandingPage() {
         <h2 className={styles.titles}>
           Pre-Order Online – Skip the Queue and Save Time!
         </h2>
-        <div className={styles.categoriesContainer}>
-          {categories.map((category) => (
-            <div
-              key={category.name}
-              className={`${styles.categoryCard} ${
-                selectedCategory === category.name ? styles.activeCategory : ""
-              }`}
-              onClick={() => setSelectedCategory(category.name)}
-            >
-              <div className={styles.imageControlContainer}>
-                <img
-                  src={`../../../public/images/orderOnline/cards/${category.imgSrc}`}
-                  className={styles.categoryImage}
-                />
+        {categories.length > 0 ? (
+          <div className={styles.categoriesContainer}>
+            {categories.map((category) => (
+              <div
+                key={category.name}
+                className={`${styles.categoryCard} ${
+                  selectedCategory === category.name
+                    ? styles.activeCategory
+                    : ""
+                }`}
+                onClick={() => setSelectedCategory(category.name)}
+              >
+                <div className={styles.imageControlContainer}>
+                  <img
+                    src={`/images/orderOnline/cards/${category.imgSrc}`}
+                    alt={category.name}
+                    className={styles.categoryImage}
+                  />
+                </div>
+                <h3>{category.name}</h3>
               </div>
-              <h3>{category.name}</h3>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <p>No menu categories available. Please check back later.</p>
+        )}
       </div>
 
-      {selectedCategory && (
+      {selectedCategory && filteredProducts.length > 0 ? (
         <div className={styles.productsContainer}>
           <h3 className={styles.titles}>
             Select {selectedCategory.toLowerCase()}:
@@ -118,7 +182,7 @@ function OrderOnlineLandingPage() {
               <div key={product.name} className={styles.productCard}>
                 <div className={styles.imageControlContainer}>
                   <img
-                    src={`../../../public/images/orderOnline/${product.imageSource}`}
+                    src={`/images/orderOnline/${product.imageSource}`}
                     alt={product.name}
                     className={styles.productImage}
                   />
@@ -128,32 +192,13 @@ function OrderOnlineLandingPage() {
             ))}
           </div>
         </div>
-      )}
+      ) : selectedCategory ? (
+        <div className={styles.productsContainer}>
+          <p>No products available in this category.</p>
+        </div>
+      ) : null}
     </BaseLayout>
   );
 }
 
 export default OrderOnlineLandingPage;
-
-// const categories = [
-//   {
-//     key: 1,
-//     category: "Hot drinks",
-//     imgSrc: "../../../public/images/orderOnline/cards/Latte.png",
-//   },
-//   {
-//     key: 2,
-//     category: "Cold drinks",
-//     imgSrc: "../../../public/images/orderOnline/cards/Cold Drinks Large.png",
-//   },
-//   {
-//     key: 3,
-//     category: "Food",
-//     imgSrc: "../../../public/images/orderOnline/cards/a half eaten pie.png",
-//   },
-//   {
-//     key: 4,
-//     category: "Make it a Combo",
-//     imgSrc: "../../../public/images/orderOnline/cards/Combo.png",
-//   },
-// ];
