@@ -1,4 +1,4 @@
-# Z Energy Station Locator and Fuel Price Comparison
+# Z Energy
 
 ## Overview
 
@@ -33,38 +33,57 @@ Z Energy is a leading New Zealand fuel distributor, providing high-quality fuel 
 
 - **Node.js**: Ensure you have Node.js installed.
 - **MongoDB**: A running instance of MongoDB is required for data storage.
+- **Docker (Optional)**: Docker is available on Maryanne's branch for containerized deployment.
+
+---
 
 ### Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/MaryanneG3/mission-5.git
    ```
 
 2. **Backend Setup**:
+
    - Navigate to `z-fuel-backend` and install dependencies:
+
      ```bash
      cd mission-5/z-fuel-backend
      npm install
      ```
 
 3. **Frontend Setup**:
+
    - Navigate to `z-fuel-frontend` and install dependencies:
+
      ```bash
      cd ../z-fuel-frontend
      npm install
      ```
 
+---
+
 ### Running the Application
 
 1. **Start the backend server**:
+
    ```bash
    npm run dev
    ```
 
 2. **Start the frontend development server**:
+
    ```bash
    npm run dev
+   ```
+
+   Alternatively, to run with Docker (available on Maryanne's branch `mary`):
+
+   ```bash
+   docker build -t z-fuel-backend .
+   docker run -p 5002:5002 --name z-fuel-backend-container zfuel-backend
    ```
 
 ## Usage
@@ -76,17 +95,40 @@ Z Energy is a leading New Zealand fuel distributor, providing high-quality fuel 
 
 ## Developers and Contributions
 
-- **Developer 1**: Maryanne Galo (https://github.com/MaryanneG3)
-Homepage, Order Online
-- **Developer 2**: Rhya Johns (https://github.com/rhyaj1)
-Find Fuel Station, Share Tank
-- **Developer 3**: Caitlin Sanderson (https://github.com/caitlincode)
-Price Comparison
+- **Developer 1**: Maryanne Galo ([https://github.com/MaryanneG3](https://github.com/MaryanneG3)) - Homepage, Order Online
+- **Developer 2**: Rhya Johns ([https://github.com/rhyaj1](https://github.com/rhyaj1)) - Find Fuel Station, Share Tank
+- **Developer 3**: Caitlin Sanderson ([https://github.com/caitlincode](https://github.com/caitlincode)) - Price Comparison
 
 ## Design Process
 
 Utilized Figma for prototyping, focusing on intuitive navigation, enhanced filtering options, and improved visibility of fuel prices. The redesign addresses key pain points and aims to provide a seamless user experience.
 
-## License
+## Docker Setup (Recommended)
 
-This project is licensed under the MIT License.
+> ⚠️ Docker setup is only available on the **`mary`** branch.
+
+### Getting Started with Docker (Only on Maryanne's Branch : mary)
+
+- Switch to the `mary` branch:
+
+  ```bash
+  git switch mary
+  ```
+
+- Build and run the app using Docker:
+
+  ```bash
+  docker-compose build
+  docker-compose up
+  ```
+
+- Visit the app at [http://localhost:5173](http://localhost:5173)
+
+### Cleanup Docker Resources
+
+To clean up Docker containers:
+
+```bash
+docker ps        # Get container ID
+docker stop <id> && docker rm <id>
+```
