@@ -2,56 +2,83 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const mongoose = require("mongoose");
-
-// DB imports
-// const connectDBFuelMap = require("./dbConfig/dbFuelMap"); // Import connection to FuelMap DB (Rhya's local)
-const connectProductsDb = require("./dbConfig/dbOrderOnline"); // Maryanne's local - products DB connection
-
-// Routes
-const productRoutes = require("./routes/productsRoutes"); // Routes for products and categories - Maryanne
-const stationRoutes = require("./routes/stationsRoutes"); // Routes to stations - Rhya
-const fuelPriceRoutes = require("./routes/fuelPrices"); // Routes to fuel prices - Caitlin
 
 const app = express();
 
-// Middleware
+// === Middleware ===
 app.use(cors());
-
 app.use(bodyParser.json());
 app.use(express.json());
 
-// Choose DB to connect to (uncomment your DB and comment out all others) <------------------------------------------ IMPORTANT!
+console.log("\nDatabase connection info: ", process.env.MONGODB_URI);
+console.log("Current connection: ", process.env.DB);
+console.log("Current environment: ", process.env.NODE_ENV);
 
-// connectDBFuelMap(); // Connect to FuelMapDB (for fuel map features) **Rhya's DB
-connectProductsDb(); // Connect to Online Orders DB (Maryanne's DB)
+// === Database Connections ===
+const connectProductsDb = require("./dbConfig/dbOrderOnline"); // Maryanne's Products DB
+const connectDBFuelMap = require("./dbConfig/dbFuelMap"); // Rhya's FuelMap DB
+const connectDBFuelPrices = require("./dbConfig/dbFuelPrices"); // Caitlin's Fuel Prices DB
 
-// MongoDB connection for fuel prices - Caitlin's DB
-// mongoose.connect('mongodb://localhost:27017/zfuel', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// })
-// .then(() => console.log('Connected to MongoDB'))
-// .catch(err => console.error('MongoDB connection error:', err));
+// === Routes ===
+const onlineOrderRoutes = require("./routes/orderOnlineRoutes"); // Products & Categories - Maryanne
+const stationRoutes = require("./routes/stationsRoutes"); // Stations - Rhya
+const fuelPriceRoutes = require("./routes/fuelPrices"); // Fuel Prices - Caitlin
 
-// Initial connection
+// Route mounting
 app.get("/", (req, res) => {
   res.send("Welcome to Z-Fuel's server!");
 });
 
-// Route imports
-app.use("/api", stationRoutes); // Access station routes (Rhya/FuelMap)
-app.use("/api/products", productRoutes); // Access product routes (Products and Categories)
-app.use("/api", fuelPriceRoutes); // access fuel price routes
-
-// Error handling middleware
+// === Error Handling Middleware ===
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: "Something went wrong!" });
 });
 
-// Start the server
+// === Start Server After DB Connection ===
 const PORT = process.env.PORT || 5002;
-app.listen(PORT, () => {
-  console.log(`Server is running on port http://localhost:${PORT}`);
-});
+
+// Choose the correct DB connection function
+let connectDB;
+if (process.env.DB === "products") {
+  connectDB = connectProductsDb; // Maryanne's DB
+} else if (process.env.DB === "fuelMap") {
+  connectDB = connectDBFuelMap; // Rhya's DB
+} else if (process.env.DB === "fuelPrices") {
+  connectDB = connectDBFuelPrices; // Caitlin's DB
+} else {
+  console.error("No valid DB selected. Please set the DB in your .env file.");
+  process.exit(1);
+}
+
+console.log(
+  "connectDB value after choose DB connection (based off .env): ",
+  connectDB,
+  "\n"
+);
+
+// First connect to the database
+connectDB()
+  .then(() => {
+    console.log("Database connection established successfully");
+
+    // === Mount routes ONLY after the database is connected ===
+    app.use("/api", stationRoutes); // Fuel Map
+    app.use("/api/products", onlineOrderRoutes); // Products & Categories
+    app.use("/api", fuelPriceRoutes); // Fuel Prices
+
+    // Only seed after connection if in development
+    if (process.env.NODE_ENV === "development") {
+      const seedDB = require("./scripts/seedOrderOnlineData");
+      seedDB();
+    }
+
+    // Finally start the server after DB connection and routes are set up
+    app.listen(PORT, () => {
+      console.log(`\nServer is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Failed to connect to database:", error);
+    process.exit(1);
+  });
