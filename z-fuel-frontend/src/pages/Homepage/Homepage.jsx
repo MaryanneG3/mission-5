@@ -2,36 +2,10 @@ import Titlebar from "../../common/titlebar/Titlebar";
 import BaseLayout from "../../layouts/baselayout/BaseLayout";
 import styles from "./Homepage.module.css";
 import { NavLink } from "react-router-dom";
-
-import homepageImage from "../../../public/images/homepage/Homepage-family-photo.png";
+import { serviceLinks } from "../../lib/serviceLinks";
+import homepageImage from "/images/homepage/Homepage-family-photo.png";
 
 function Homepage() {
-  const serviceLinks = [
-    {
-      serviceTitle: "Sharetank",
-      serviceDescription:
-        "Buy fuel and share with up to 5 friends and family with Sharetank",
-      btnTitle: "Sharetank",
-      btnLink: "/share-tank",
-      imgSrc: "../../../public/images/homepage/share-tank.png",
-    },
-    {
-      serviceTitle: "Price comparison",
-      serviceDescription: "Compare fuel prices with nearby stations ",
-      btnTitle: "Price comparison",
-      btnLink: "/compare-prices",
-      imgSrc: "../../../public/images/homepage/price-comparison.png",
-    },
-    {
-      serviceTitle: "Order food online",
-      serviceDescription:
-        "Order food and drinks via the app and pick up at the station ",
-      btnTitle: "Order food",
-      btnLink: "/order-online-landing-page",
-      imgSrc: "../../../public/images/homepage/order-online.png",
-    },
-  ];
-
   return (
     <BaseLayout variant="homepage">
       <Titlebar

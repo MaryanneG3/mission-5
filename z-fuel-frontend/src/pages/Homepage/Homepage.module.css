@@ -1,7 +1,5 @@
 .homepageImageContainer {
   width: 100vw;
-  /* height: 600px; */
-
   margin-block: 20px;
 }
 
@@ -20,9 +18,7 @@
   gap: 100px;
   margin-block: 10px;
   padding: 60px 10px;
-  /* height: 80%; */
   width: 100vw;
-  /* background-color: pink; */
 }
 
 .ContentContainer {
@@ -30,11 +26,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* padding: 30px; */
   height: 200px;
   width: 100%;
-
-  /* background-color: blueviolet; */
 }
 
 .ContentContainerFlipped {
@@ -46,8 +39,6 @@
   flex-direction: column;
   width: 50%;
   padding: 10px;
-
-  /* background-color: yellowgreen; */
 }
 
 .serviceDetailsContainerFlipped {
@@ -83,13 +74,18 @@
   text-decoration: none;
 }
 
+.serviceDetails .serviceBtn:hover {
+  background-color: #ffb752;
+  color: #1e196b;
+  transition: all 0.3s ease-in-out;
+}
+
 .serviceImageContainer {
   width: 350px;
   display: flex;
   object-fit: contain;
   align-items: center;
   border-radius: 30px;
-  /* background-color: brown; */
 }
 
 .serviceImg {

@@ -1,0 +1,111 @@
+# Z-Fuel Backend
+
+The Z-Fuel Backend service includes three main features, each developed by different team members.
+
+1. The Online Order feature, created by Maryanne, allows users to browse and place orders for products through a seamless API integration with MongoDB.
+
+2. The Fuel Map feature, developed by Rhya, provides users with access to an interactive map that shows fuel stations and their locations, enhancing the user experience for locating fuel services.
+
+3. Lastly, the Fuel Prices feature, created by Caitlin, enables users to view real-time fuel prices, offering transparency and helping customers make informed decisions.
+
+These features work together to provide a comprehensive service to users, leveraging MongoDB and Docker for smooth, containerized deployment.
+
+---
+
+## 📁 Prerequisites
+
+- Ensure Docker is installed on your machine.
+- Ensure Git is installed to clone the repository.
+- `.env` file (see below for setup).
+
+---
+
+### ⚙️ Environment Variables
+
+Create a `.env` file in the root of the backend folder:
+
+<!-- to do: update db connection info -->
+
+```env
+PORT=5002
+DB=products
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/zfuel
+NODE_ENV=development
+```
+
+> Replace `<username>` and `<password>` with your actual MongoDB Atlas credentials.
+
+If you want access to the other databases (fuelMap, fuelPrices), you will need to change the value of the DB variable in the .env file.
+
+For Maryanne's DB (Products):
+
+```env
+DB=products
+```
+
+For Rhya's DB (Fuel Map):
+
+```env
+DB=fuelMap
+```
+
+For Caitlin's DB (Fuel Prices):
+
+```env
+DB=fuelPrices
+```
+
+Make sure to set the correct database in your .env file before starting the server.
+
+---
+
+### 🛠 Clone the Repository and change to backend directory
+
+```bash
+git clone https://github.com/MaryanneG3/mission-5.git
+cd z-fuel-backend
+git switch <branch-name>
+```
+
+---
+
+## 🚀 Getting started - Local development
+
+After cloning you can run the app manually:
+
+```bash
+npm install
+npm run dev
+```
+
+## 🚀 Getting Started with Docker (Only on Maryanne's Branch : mary)
+
+> ⚠️ This setup only works on **`mary`** where Docker support and environment configuration have been implemented.
+
+After cloning switch to branch mary:
+
+```bash
+git switch mary
+```
+
+### 🐳 Run the App Using Docker
+
+```bash
+docker build -t z-fuel-backend .
+docker run -p 5002:5002 --name z-fuel-backend-container zfuel-backend
+
+```
+
+### 🧹 Cleanup Docker Resources
+
+```bash
+docker ps        # Get container ID
+docker stop <id> && docker rm <id>
+```
+
+---
+
+### 👩‍💻 Last Updated by
+
+Maryanne Galo – Full Stack Developer, Z-Fuel Project - Mission Ready
+date: 05/09/2025

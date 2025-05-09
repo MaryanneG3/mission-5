@@ -1,8 +1,8 @@
 const Products = require("../models/productsModel");
-const Categories = require("../models/categoryModel");
+const Category = require("../models/categoryModel");
 
-// Get all products
 const getAllProducts = async (req, res) => {
+  console.log("Fetching all products...");
   try {
     const products = await Products.find();
     res.status(200).json(products);
@@ -13,10 +13,10 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-// Get unique categories
 const getUniqueCategories = async (req, res) => {
+  console.log("Fetching unique categories...");
   try {
-    const categories = await Categories.find();
+    const categories = await Category.find();
     res.status(200).json(categories);
   } catch (error) {
     res

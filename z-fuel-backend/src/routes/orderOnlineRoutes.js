@@ -3,7 +3,7 @@ const router = express.Router();
 const {
   getAllProducts,
   getUniqueCategories,
-} = require("../controllers/productControllers");
+} = require("../controllers/orderOnlineControllers");
 
 router.get("/all-products", getAllProducts);
 router.get("/categories", getUniqueCategories);

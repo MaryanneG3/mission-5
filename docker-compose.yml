@@ -1,0 +1,40 @@
+version: "3.8" # Docker Compose file format version
+
+services: # All containers we want to run
+  mongo: # Our MongoDB container
+    image: mongo:6 # Use the official MongoDB image (version 6)
+    container_name: z-mongo # Name this container "z-mongo"
+    ports:
+      - "27017:27017" # Expose MongoDB on localhost:27017
+    volumes:
+      - ./z-fuel-backend/mongo/initdb.d:/docker-entrypoint-initdb.d # Auto-load initial data from local file
+    environment:
+      MONGO_INITDB_DATABASE: zfuel # Create a default DB called "zfuel"
+    networks:
+      - z-network # Connect this container to a shared network
+
+  backend: # Node.js backend
+    build: ./z-fuel-backend # Build image from the Dockerfile in the backend folder
+    container_name: z-backend
+    ports:
+      - "5002:5002" # Expose backend API on localhost:5002
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/zfuel # Connect to MongoDB (using container name "mongo")
+    depends_on:
+      - mongo # Wait for MongoDB to start before backend
+    networks:
+      - z-network
+
+  frontend: # Vite frontend
+    build: ./z-fuel-frontend
+    container_name: z-frontend
+    ports:
+      - "5173:5173" # Vite dev server port
+    depends_on:
+      - backend # Wait for backend to start
+    networks:
+      - z-network
+
+networks:
+  z-network: # Define a shared virtual network
+    driver: bridge
