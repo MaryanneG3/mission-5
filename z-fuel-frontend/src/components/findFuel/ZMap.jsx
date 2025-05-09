@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./ZMap.module.css";
 import MapComponent from "./MapComponent";
 import StationCard from "./StationCard";
-import SearchBar from "./searchBar";
+import SearchBar from "./SearchBar";
 
 function ZMap() {
   const [stations, setStations] = useState([]); // stores stations data
@@ -57,22 +57,21 @@ function ZMap() {
   return (
     <div className={styles.container}>
       <div className={styles.layoutContainer}>
-      <div className={styles.leftContainer}>
-        {/* search bar section */}
-        <SearchBar
-          onSearchChange={handleSearchInputChange}
-          stations={stations}
-        />
+        <div className={styles.leftContainer}>
+          {/* search bar section */}
+          <SearchBar
+            onSearchChange={handleSearchInputChange}
+            stations={stations}
+          />
 
-        {/* station cards section */}
-        {content}
-      </div>
+          {/* station cards section */}
+          {content}
+        </div>
 
-      {/* map section */}
-      <div className={styles.rightContainer}>
-        <MapComponent stations={stations} />
-      </div>
-
+        {/* map section */}
+        <div className={styles.rightContainer}>
+          <MapComponent stations={stations} />
+        </div>
       </div>
     </div>
   );
