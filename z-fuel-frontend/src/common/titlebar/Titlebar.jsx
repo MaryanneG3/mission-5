@@ -76,13 +76,18 @@ function Titlebar({ variant, backgroundImage, title }) {
             <div className={styles.leftSection}>
               <h2>{title}</h2>
 
-              <NavLink to="/find-a-station" className={styles.findStationLink}>
-                <p>Find your Closest Z </p>
-                <FontAwesomeIcon
-                  icon={faCircleArrowRight}
-                  className={styles.icon}
-                />
-              </NavLink>
+              <div className={styles.findStatBtn}>
+                <NavLink
+                  to="/find-a-station"
+                  className={styles.findStationLink}
+                >
+                  <p>Find your Closest Z </p>
+                  <FontAwesomeIcon
+                    icon={faCircleArrowRight}
+                    className={styles.icon}
+                  />
+                </NavLink>
+              </div>
             </div>
             <div className={styles.rightSection}>
               {/* <img src="../../../public/images/icons/zPurpleVector.png" /> */}

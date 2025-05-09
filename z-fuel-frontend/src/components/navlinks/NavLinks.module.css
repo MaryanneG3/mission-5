@@ -166,3 +166,90 @@ button:hover {
   color: white;
   font-weight: 600;
 }
+
+/* ----------- hamburgers ---------------- */
+
+.navLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-inline: 20px;
+}
+
+.hamburgerContainer {
+  display: none;
+
+  /* background-color: black; */
+}
+
+.hamburgerIcon {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+/* When the menu is open, display the links */
+.showMenu {
+  display: flex !important;
+  flex-direction: column;
+  /* justify-content: center; */
+  gap: 5px;
+  position: absolute;
+  top: 60px;
+  right: 5px;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+/* For screens <= 950px, hide the links by default */
+@media (max-width: 950px) {
+  .navLinks {
+    display: none; /* Hide links by default on small screens */
+  }
+
+  .hamburgerContainer {
+    display: flex; /* Show the hamburger icon */
+    height: 100%;
+    /* background-color: pink; */
+    /* align-items: center; */
+    justify-content: center;
+    /* margin-block: 5px; */
+    padding: 10px;
+  }
+
+  .navLinks.showMenu {
+    display: flex; /* Show the links when menu is open */
+    /* background-color: pink; */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .showMenu .navlink {
+    border-bottom: 1px rgb(244, 220, 176) solid;
+    width: 100%;
+    margin: 5px;
+    padding: 10px 30px;
+    gap: 10px;
+  }
+
+  .leftSection {
+    display: none;
+  }
+
+  .createAccBtn {
+    width: 100px;
+    padding: 5px 20px;
+  }
+
+  .rightSection {
+    display: none;
+  }
+
+  .loginBtn {
+    margin-top: 10px;
+  }
+}
