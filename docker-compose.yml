@@ -1,5 +1,3 @@
-version: "3.8" # Docker Compose file format version
-
 services: # All containers we want to run
   mongo: # Our MongoDB container
     image: mongo:6 # Use the official MongoDB image (version 6)
