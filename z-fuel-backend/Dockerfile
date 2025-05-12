@@ -17,4 +17,5 @@ COPY . .
 EXPOSE 5002
 
 # Step 7: Set the command to run the backend server (e.g., nodemon for development)
-CMD ["npm", "run", "dev"]
+CMD ["node", "src/index.js"]
+

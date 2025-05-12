@@ -90,6 +90,8 @@ git switch mary
 
 ### 🐳 Run the App Using Docker
 
+- Ensure you have Docker Desktop running
+
 ```bash
 docker build -t z-fuel-backend .
 docker run -p 5002:5002 --name z-fuel-backend-container zfuel-backend
