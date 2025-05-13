@@ -14,7 +14,7 @@ function OrderOnlineLandingPage() {
     const fetchAllProducts = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5002/api/products/all-products"
+          `${import.meta.env.VITE_API_URL}/api/products/all-products`
         );
 
         if (!response.ok) {
@@ -32,7 +32,7 @@ function OrderOnlineLandingPage() {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5002/api/products/categories"
+          `${import.meta.env.VITE_API_URL}/api/products/categories`
         );
 
         if (!response.ok) {
