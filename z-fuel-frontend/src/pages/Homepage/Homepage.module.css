@@ -19,6 +19,7 @@
   margin-block: 10px;
   padding: 60px 10px;
   width: 100vw;
+  background-color: white;
 }
 
 .ContentContainer {
@@ -28,6 +29,7 @@
   align-items: center;
   height: 200px;
   width: 100%;
+  background-color: white;
 }
 
 .ContentContainerFlipped {
